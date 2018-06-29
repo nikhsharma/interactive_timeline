@@ -1,0 +1,11 @@
+.header {
+  height: 40vh;
+  width: 100vw;
+  background-image: url('https://i.imgur.com/lMfAk8n.jpg');
+  background-size: cover;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
