@@ -18,9 +18,9 @@ MongoClient.connect(
 
     app.get("/api/history", (req, res, next) => {
       const historyCollection = db.collection("rome");
-      historyCollection.find().toArray((err, history) => {
+      historyCollection.find().toArray((err, rome) => {
         if (err) next(err);
-        res.json(history);
+        res.json(rome);
       });
     });
 
