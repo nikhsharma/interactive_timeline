@@ -1,0 +1,23 @@
+.navbar {
+  border-bottom: 1px solid black;
+  text-align: right;
+}
+
+.navbar a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.navbar-ul {
+  display: inline-flex ;
+}
+
+.navbar-li {
+  display: block;
+  margin: 10px;
+}
+
+.title {
+  float: left;
+}
