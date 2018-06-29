@@ -23,7 +23,7 @@ export default class RomeTimeline extends Component {
 //   <p key={index}>{event}</p>
 //
 // ))
-console.log(this.state.data);
+// console.log(this.state.data);
     return (
       <div className="rome-timeline">
 <p>Timeline</p>
