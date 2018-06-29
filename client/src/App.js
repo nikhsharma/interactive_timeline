@@ -4,6 +4,7 @@ import RomeTimeline from './components/RomeTimeline';
 import Nav from './containers/Nav';
 
 import {BrowserRouter as Router, Route} from 'react-router-dom';
+import Footer from './containers/Footer';
 
 class App extends Component {
 
@@ -14,6 +15,7 @@ class App extends Component {
           <Nav />
           <Route exact path='/' component={Home} />
           <Route path='/rome' component={RomeTimeline} />
+          <Footer />
         </React.Fragment>
       </Router>
     );

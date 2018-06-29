@@ -9,9 +9,7 @@ export default class Home extends Component {
 
   render() {
     return(
-    // <Header />
-    <Categories />
-    // <Footer />
+      <Categories />
     )
   }
 }
