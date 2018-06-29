@@ -2,21 +2,20 @@
     border-bottom: 2px solid grey;
     padding-top: 4vh;
     width: 100vw;
-    height: 80vh;
+    height: 75vh;
 }
 
 .cat-content-container {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: center; */
     flex-wrap: wrap;
     margin-left: 5vw;
     width: 90vw;
     height: 75vh;
+    overflow: scroll;
 }
 
 .cat-content {
-    margin-top: 5vh;
+    margin: 20px;
     height: 25vh;
 }
-
-

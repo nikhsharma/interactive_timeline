@@ -5,3 +5,7 @@ h4 {
 p {
   text-align: right;
 }
+
+.footer {
+  height: 10vh;
+}
