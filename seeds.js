@@ -1,8 +1,8 @@
-use history;
+use historyDB;
 
-db.history.remove({});
+db.rome.remove({});
 
-db.history.insert([
+db.rome.insert({ data: [
 
 {
   data_date: -753,
@@ -33,4 +33,4 @@ db.history.insert([
   data_date: -616,
   content: "The Curiate Assembly elected Lucius Tarquinius Priscus King of Rome."
 }
-]);
+]});
