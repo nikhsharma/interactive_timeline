@@ -1,4 +1,5 @@
 import React from 'react';
+import "../style/Footer.css";
 
 const Footer = ({sign_off}) => {
   return (

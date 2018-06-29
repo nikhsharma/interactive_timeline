@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import Header from './Header';
 import Categories from './Categories';
 // import Footer from './Footer';
-import './Home.css'
+import '../style/Home.css'
 
 export default class Home extends Component {
 

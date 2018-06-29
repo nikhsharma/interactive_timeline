@@ -1,8 +1,14 @@
 .navbar {
   border-bottom: 1px solid black;
   text-align: right;
-  height: 10vh;
+  height: 6vh;
 
+}
+
+.navbar h1 {
+  margin: 0;
+  margin-top: 10px;
+  margin-left: 3vw;
 }
 
 .navbar a {
@@ -12,7 +18,9 @@
 }
 
 .navbar-ul {
-  display: inline-flex ;
+  display: inline-flex;
+  margin-right: 3vw;
+  margin-top: 10px;
 }
 
 .navbar-li {
