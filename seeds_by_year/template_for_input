@@ -1,0 +1,10 @@
+use quotesDB;
+
+db.quotes.remove({});
+
+db.quotes.insert([
+
+
+
+
+]);
