@@ -1,0 +1,23 @@
+.cat-section {
+    border-top: 2px solid grey;
+    border-bottom: 2px solid grey;
+    padding-top: 4vh;
+    width: 100vw;
+    height: 80vh;
+}
+
+.cat-content-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-left: 5vw;
+    width: 90vw;
+    height: 75vh;
+}
+
+.cat-content {
+    margin-top: 5vh;
+    height: 25vh;
+}
+
+

@@ -1,18 +1,17 @@
 import React, {Component} from 'react';
-import Nav from './Nav';
-import Header from './Header';
+// import Nav from './Nav';
+// import Header from './Header';
 import Categories from './Categories';
-import Footer from './Footer';
+// import Footer from './Footer';
 import './Home.css'
 
 export default class Home extends Component {
 
   render() {
     return(
-    // {/* <Header />
-    // <Categories />
-    // <Footer /> */}
-    <p>home</p>
+    // <Header />
+    <Categories />
+    // <Footer />
     )
   }
 }
