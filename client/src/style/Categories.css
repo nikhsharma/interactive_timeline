@@ -1,13 +1,11 @@
 .cat-section {
     border-bottom: 2px solid grey;
-    padding-top: 4vh;
     width: 100vw;
     height: 75vh;
 }
 
 .cat-content-container {
     display: flex;
-    /* justify-content: center; */
     flex-wrap: wrap;
     margin-left: 5vw;
     width: 90vw;
@@ -17,5 +15,7 @@
 
 .cat-content {
     margin: 20px;
-    height: 25vh;
+    width: 26vw;
+    border: 3px solid black;
 }
+
