@@ -10,9 +10,9 @@ export default class Home extends Component {
   render() {
     return(
     <Nav />
-    <Header />
-    <Categories />
-    <Footer />
+    // {/* <Header />
+    // <Categories />
+    // <Footer /> */}
     )
   }
 }
