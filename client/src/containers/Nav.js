@@ -15,6 +15,12 @@ export default class Nav extends Component {
           <li className='navbar-li'>
             <Link to='/rome'>Roman History</Link>
           </li>
+          <li className='navbar-li'>
+            <Link to='/bookmarks'>Bookmarks</Link>
+          </li>
+          {/* <li classname='test'>
+            <Link to='/somewhere_else'>An Extra Link</Link>
+          </li> */}
         </ul>
       </div>
     )
