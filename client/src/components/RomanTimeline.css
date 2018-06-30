@@ -6,7 +6,10 @@
   transform:rotate(-90deg) translateY(-50vh);
   transform-origin: right top;
   background-color: grey;
+}
 
+.timeline.scroll {
+  behavior: 'smooth';
 }
 
 .timeline div {
