@@ -1,5 +1,25 @@
 .timeline {
+  width: 50vh;
+  height: 100vw;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transform:rotate(-90deg) translateY(-50vh);
+  transform-origin: right top;
+  background-color: grey;
+}
+
+.timeline.scroll {
+  behavior: 'smooth';
+}
+
+.timeline div {
+  width: 500px;
   height: 50vh;
+  transform: rotate(90deg) translateY(7vh) translateX(4vw);
+  transform-origin: center;
+  border: 1px solid blue;
+  background-color: white;
+  overflow: hidden;
 }
 
 html, body {
