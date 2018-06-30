@@ -25,8 +25,13 @@ export default class RomeTimeline extends Component {
     ))
     return  (
       <div className='timeline'>
+        <div>data</div>
+        <div>data</div>
+        <div>data</div>
+        <div>data</div>
+        <div>data</div>
+        <div>data</div>
 
-    {events}
     </div>
     );
   }

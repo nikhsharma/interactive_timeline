@@ -1,3 +1,19 @@
 .timeline {
+  width: 50vh;
+  height: 100vw;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transform:rotate(-90deg) translateY(-50vh);
+  transform-origin: right top;
+  background-color: grey;
+
+}
+
+.timeline div {
+  width: 500px;
   height: 50vh;
+  transform: rotate(90deg) translateY(7vh) translateX(4vw);
+  transform-origin: center;
+  background-color: blue;
+  overflow: hidden;
 }
