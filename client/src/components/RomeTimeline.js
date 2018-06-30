@@ -21,8 +21,15 @@ export default class RomeTimeline extends Component {
     if (!this.state.data) return null;
     const events = this.state.data.map( event => (
       <div>
-        <li className="event" key={event.data_date}>{event.data_date + ' ' + event.content}</li>
+        <li className="event" key={event.data_date}>
+          <div className="date">
+            {event.data_date}
+            </div>
         <span class="point"></span>
+        <div className="content">
+          {event.content}
+        </div>
+        </li>
       </div>
     ))
     return  (

@@ -3,7 +3,7 @@
 }
 
 html, body {
-  color: #681;
+  color: black;
 	background: #fff;
 	min-width: 700px;
 }
@@ -34,7 +34,7 @@ ol::after {
 	right: -10px;
 	border: 10px solid transparent;
 	border-right: 0;
-	border-left: 20px solid #31708F;
+	border-left: 20px solid blue;
   border-radius: 3px;
 }
 
@@ -44,15 +44,22 @@ li {
 	display: inline-block;
 	float: left;
 	width: 150px;
-	font: bold 14px arial;
   height: 50px;
 }
 li .event {
   position: absolute;
-  top: -47px;
+	font: bold 14px arial;  top: -47px;
   left: 36%;
-  color: #000000;
+  color: blue;
 }
+
+li .date {
+  position: relative;
+  font: bold 20px arial;  top: -47px;
+  left: 36%;
+  color: red;
+}
+
 li .point {
 	content: "";
 	top: -4px;
@@ -67,7 +74,7 @@ li .point {
 }
 li .description {
   display: none;
-  background-color: #f4f4f4;
+  background-color: yellow;
   padding: 10px;
   margin-top: 20px;
   position: relative;
@@ -80,7 +87,7 @@ li .description {
   height: 0;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-bottom: 5px solid #f4f4f4;
+  border-bottom: 5px solid purple;
   position: absolute;
   top: -5px;
   left: 43%;
@@ -89,8 +96,16 @@ li .description {
 /* ---- Hover effects ---- */
 li:hover {
 	cursor: pointer;
-  color: #48A4D2;
+  color: red;
 }
 li:hover .description {
   display: block;
 }
+
+.content {
+  padding: 20px 30px;
+    background-color: white;
+    position: relative;
+    border: 1px solid black;  
+    border-radius: 6px;
+  }
