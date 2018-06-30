@@ -11,7 +11,7 @@
   behavior: 'smooth';
 }
 
-.hline { 
+.hline {
   width:100%;
   height:1px;
   background: red;
@@ -91,6 +91,7 @@ li .date {
   text-align: center;
   font-size: 32px;
   border: 2px solid #666;
+  background-color: white;
 }
 
 li .description {
