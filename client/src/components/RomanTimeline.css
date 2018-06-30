@@ -17,6 +17,7 @@
   height: 50vh;
   transform: rotate(90deg) translateY(7vh) translateX(4vw);
   transform-origin: center;
-  background-color: blue;
+  border: 1px solid blue;
+  background-color: white;
   overflow: hidden;
 }
