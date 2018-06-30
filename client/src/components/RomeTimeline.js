@@ -20,7 +20,6 @@ export default class RomeTimeline extends Component {
 
 scrollDiv(){
   if (!document.querySelector('.timeline')) return null;
-  // if (true) return null;
 
    if(document.querySelector('.timeline').scrollTop<(document.querySelector('.timeline').scrollHeight-document.querySelector('.timeline').offsetHeight)){-1
      document.querySelector('.timeline').scrollTop=document.querySelector('.timeline').scrollTop+1
@@ -33,13 +32,13 @@ scrollDiv(){
   render() {
     if (!this.state.data) return null;
     const events = this.state.data.map( event => (
-      <div>
-        <li className="event" key={event.data_date}>
+      <div className="event">
+        <li  key={event.data_date}>
           <div className="date">
             {event.data_date}
             </div>
-        <span class="point"></span>
-        <div className="content">
+        <span className="point"></span>
+        <div className="content ">
           {event.content}
         </div>
         </li>
@@ -47,9 +46,7 @@ scrollDiv(){
     ))
     return  (
       <div className='timeline'>
-        <ol>
           {events}
-        </ol>
       </div>
     );
   }

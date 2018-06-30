@@ -1,24 +1,22 @@
 .timeline {
   width: 50vh;
   height: 100vw;
-  overflow-y: auto;
+  overflow-y: auto;x
   overflow-x: hidden;
-  transform:rotate(-90deg) translateY(-50vh);
+  transform:rotate(-90deg) translateY(-50vh) translateX(-20vh);
   transform-origin: right top;
-  background-color: grey;
 }
 
 .timeline.scroll {
   behavior: 'smooth';
 }
 
-.timeline div {
+.timeline li {
   width: 500px;
   height: 50vh;
-  transform: rotate(90deg) translateY(7vh) translateX(4vw);
+  transform: rotate(90deg) translateY(20vh);
   transform-origin: center;
-  border: 1px solid blue;
-  background-color: white;
+  background-color: tranparent;
   overflow: hidden;
 }
 
@@ -29,6 +27,8 @@ html, body {
   background-size: cover;
 	min-width: 700px;
 }
+
+
 
 /* ---- Timeline ---- */
 ol {
