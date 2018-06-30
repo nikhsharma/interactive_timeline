@@ -11,7 +11,11 @@
   behavior: 'smooth';
 }
 
-.hline { width:100%; height:1px; background: red; z-index: 1 }
+.hline { 
+  width:100%;
+  height:1px;
+  background: red;
+  z-index: 1 }
 
 .timeline li {
   width:100%; height:1px;
@@ -80,25 +84,15 @@ li .event {
 }
 
 li .date {
-  position: relative;
-  padding: 20px;
-  font: bold 50px arial;  top: -47px;
-  left: 36%;
-  color: red;
+  position: center;
+  width: 120px;
+  line-height: 120px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 32px;
+  border: 2px solid #666;
 }
 
-li .point {
-  content: "";
-  top: -4px;
-  left: 43%;
-  display: block;
-  width: 6px;
-  height: 6px;
-  border: 4px solid #31708F;
-  border-radius: 10px;
-  background: #fff;
-  position: absolute;
-}
 li .description {
   display: none;
   background-color: yellow;
