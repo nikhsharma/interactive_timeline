@@ -18,35 +18,37 @@ export default class RomeTimeline extends Component {
     setInterval(this.scrollDiv,50)
   }
 
-scrollDiv(){
-  if (!document.querySelector('.timeline')) return null;
+  scrollDiv(){
+    if (!document.querySelector('.timeline')) return null;
 
-   if(document.querySelector('.timeline').scrollTop<(document.querySelector('.timeline').scrollHeight-document.querySelector('.timeline').offsetHeight)){-1
-     document.querySelector('.timeline').scrollTop=document.querySelector('.timeline').scrollTop+1
-         }
-   else {document.querySelector('.timeline').scrollTop=0;}
-}
+    if(document.querySelector('.timeline').scrollTop<(document.querySelector('.timeline').scrollHeight-document.querySelector('.timeline').offsetHeight)){-1
+      document.querySelector('.timeline').scrollTop=document.querySelector('.timeline').scrollTop+1
+    }
+    else {document.querySelector('.timeline').scrollTop=0;}
+  }
 
 
 
   render() {
     if (!this.state.data) return null;
+    <div className="hline">
+    </div>
     const events = this.state.data.map( event => (
-      <div className="event">
-        <li  key={event.data_date}>
-          <div className="date">
-            {event.data_date}
+        <div className="event">
+          <li  key={event.data_date}>
+            <div className="date">
+              {event.data_date}
             </div>
-        <span className="point"></span>
-        <div className="content ">
-          {event.content}
+            <span className="point"></span>
+            <div className="content ">
+              {event.content}
+            </div>
+          </li>
         </div>
-        </li>
-      </div>
     ))
     return  (
       <div className='timeline'>
-          {events}
+        {events}
       </div>
     );
   }
