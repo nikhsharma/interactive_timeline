@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Encode+Sans+Condensed|Poiret+One|Open+Sans);
+
 body {
   background-color: black;
   margin: 0;
@@ -9,9 +11,9 @@ body {
   display: none;
 }
 
-h2 {
-    text-decoration: none;
-}
-#root {
-
+<<<<<<< HEAD
+h2, p, h1, a {
+  font-family: 'Encode Sans Condensed', sans-serif;
+  /* font-weight: bold; */
+  text-decoration: none;
 }
