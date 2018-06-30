@@ -3,6 +3,8 @@
     border-top: 2px solid black;
     width: 100vw;
     height: 75vh;
+    overflow: scroll;
+    background-color: SEASHELL;
 }
 
 .cat-content-container {
@@ -11,7 +13,6 @@
     margin-left: 5vw;
     width: 90vw;
     height: 75vh;
-    overflow: scroll;
 }
 
 .cat-content {
@@ -26,5 +27,9 @@
     color: white;
     font-size: 25px;
     border: 3px solid black;
+    text-decoration: none;
+}
+
+.cat-content h2 {
     text-decoration: none;
 }

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from "react-router-dom";
+// import {Link} from "react-router-dom";
 import './RomanTimeline.css'
 
 export default class RomeTimeline extends Component {
@@ -15,7 +15,6 @@ export default class RomeTimeline extends Component {
     fetch(url).then(res => res.json()).then(data => this.setState({data: data['0'].data}))
 
   }
-
 
   render() {
     if (!this.state.data) return null;
