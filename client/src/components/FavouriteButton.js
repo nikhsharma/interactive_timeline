@@ -1,18 +1,16 @@
 import React, {Component} from 'react';
 import './FavouriteButton.css';
+import './Favourites';
 
 export default class FavouriteButton extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      favourites: []
-    }
-    this.handleFavClick = this.handleFavClick.bind(this);
+    this.state = {}
   }
 
   componentDidMount() {
     console.log("Favourite Button mounted");
-    const button = document.querySelector('button');
+    // const button = document.querySelector('button');
     // console.log("Button", button);
   }
 
@@ -28,19 +26,10 @@ export default class FavouriteButton extends Component {
     console.log("Previous props is: ", prevProps);
   }
 
-  handleFavClick(event) {
-    event.preventDefault();
-    console.log("Favourite Button was clicked");
-    this.setState(() => {
-      favourites: this.state.favourites.push("Testing");
-    });
-    console.log(this.state.favourites);
-  }
-
   render() {
     return (
       <div className="save-button">
-        <button onClick={this.handleFavClick} type="submit">
+        <button onClick={() => this.state.handleFavClick()} type="submit">
           <img src="https://cdn3.iconfinder.com/data/icons/linecons-free-vector-icons-pack/32/star-512.png" width="19" height="15" alt="Save" />
         </button>
       </div>

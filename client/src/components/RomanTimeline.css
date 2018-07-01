@@ -76,7 +76,7 @@ li {
   width: 150px;
   height: 50px;
 }
-li .event {
+li .historicalEvent {
   position: absolute;
   font: bold 14px arial;  top: -47px;
   left: 36%;
@@ -132,6 +132,6 @@ li:hover .description {
   border-radius: 6px;
 }
 
-.event {
+.historicalEvent {
   padding: 30px;
 }

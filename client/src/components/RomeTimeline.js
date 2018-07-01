@@ -31,23 +31,23 @@ export default class RomeTimeline extends Component {
 
   render() {
     if (!this.state.data) return null;
-    const events = this.state.data.map( event => (
-      <div className="event">
-        <li  key={event.data_date}>
+    const historicalEvents = this.state.data.map( historicalEvent => (
+      <div className="historicalEvent">
+        <li  key={historicalEvent.data_date}>
           <div className="date">
-            {event.data_date}
+            {historicalEvent.data_date}
           </div>
           <span className="point"></span>
           <div className="content ">
             <FavouriteButton />
-            {event.content}
+            {historicalEvent.content}
           </div>
         </li>
       </div>
     ))
     return  (
       <div className='timeline'>
-        {events}
+        {historicalEvents}
       </div>
     );
   }
