@@ -1,25 +1,24 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import {Navbar, Nav, NavItem, MenuItem, NavDropdown} from 'react-bootstrap';
 import '../style/Nav.css';
 
 
-export default class Nav extends Component {
+export default class NavBar extends Component {
   render() {
     return(
-      <div className='navbar'>
-        <h1 className='title'>Interactive Timeline</h1>
-        <ul className='navbar-ul'>
-          <li className='navbar-li'>
-            <Link to='/'>Home</Link>
-          </li>
-          <li className='navbar-li'>
-            <Link to='/rome'>Roman History</Link>
-          </li>
-          <li className='navbar-li'>
-            <Link to='/bookmarks'>Bookmarks</Link>
-          </li>
-        </ul>
-      </div>
-    )
-  }
+      <Navbar>
+        <Navbar.Header>
+          <Navbar.Brand>
+            <a href="/">Interactive Timeline</a>
+          </Navbar.Brand>
+        </Navbar.Header>
+        <Nav pullRight>
+          <NavItem eventKey={1} href="/rome">
+          The History of Rome
+        </NavItem>
+      </Nav>
+    </Navbar>
+  )
+}
 }

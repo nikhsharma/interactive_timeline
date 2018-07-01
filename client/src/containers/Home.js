@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-// import Nav from './Nav';
 import Header from './Header';
 import Categories from './Categories';
-// import Footer from './Footer';
 import '../style/Home.css'
 
 export default class Home extends Component {
@@ -38,9 +36,9 @@ export default class Home extends Component {
     }
     this.setState({ formattedapidata: finsiheddata });
     console.log(this.state.formattedapidata);
-  } 
+  }
   request() {
-    
+
   }
 
 

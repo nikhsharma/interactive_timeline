@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Timeline from './Timeline';
 import './RomanTimeline.css'
 
 export default class RomeTimeline extends Component {
@@ -38,6 +39,7 @@ export default class RomeTimeline extends Component {
             <div className="date">
               {event.data_date}
             </div>
+            <dvi className='point'></dvi>
             <div className="content ">
               {event.content}
             </div>
@@ -45,11 +47,7 @@ export default class RomeTimeline extends Component {
     ))
     return  (
       <div className='timeline-content'>
-      <div className='timeline'>
-        <div className='hline'></div>
-        {events}
-        <button className='move-button'>Move timeline</button>
-      </div>
+        <Timeline events={events}/>
       </div>
     );
   }
