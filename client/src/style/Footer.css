@@ -1,16 +1,28 @@
-.footer h4 {
-  text-align: left;
+footer .left {
+  width: 75vw;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -1vh;
 }
 
-.footer h3 {
-  text-align: left;
+footer .left h4 {
+   padding-left: 2vw;
 }
 
-.footer p {
-  text-align: right;
+footer .left h3 {
+   padding-left: 3vw;
 }
 
-.footer {
-  height: 5vh;
+footer .right {
+  padding-top: 1.5vh;
+  width: 20vw;
+}
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
   background-color: SEASHELL;
+  margin:0px;
+  padding: 0px;
+  height: 5vh;
 }

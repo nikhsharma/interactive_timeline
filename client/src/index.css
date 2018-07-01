@@ -13,6 +13,7 @@ body {
 
 h2, p, h1, a {
   font-family: 'Encode Sans Condensed', sans-serif;
-  /* font-weight: bold; */
   text-decoration: none;
+  margin:0;
+  padding:0;
 }
