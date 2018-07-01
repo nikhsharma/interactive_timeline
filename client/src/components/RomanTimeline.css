@@ -68,6 +68,11 @@ body {
   color: red;
 }
 
+.move-button {
+  position: fixed;
+  z-index: 2;
+}
+
 .content {
   padding: 20px 30px;
   background-color: white;
