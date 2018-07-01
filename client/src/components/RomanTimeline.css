@@ -8,8 +8,8 @@
   jusiify-content: space-around;
 }
 
-.timeline.scroll {
-  behavior: 'smooth';
+body {
+  scroll-behavior: 'smooth';
 }
 
 .timeline-content {
@@ -22,7 +22,7 @@
   height:5px;
   background: #fff;
   position: fixed;
-  top: 220px;
+  top: 245px;
   z-index: 0;
 }
 

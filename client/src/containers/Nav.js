@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import {Navbar, Nav, NavItem, MenuItem, NavDropdown} from 'react-bootstrap';
+import {Navbar, Nav, NavItem} from 'react-bootstrap';
 import '../style/Nav.css';
 
 
@@ -10,7 +10,7 @@ export default class NavBar extends Component {
       <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="/">Interactive Timeline</a>
+            <Link to="/">Interactive Timeline</Link>
           </Navbar.Brand>
         </Navbar.Header>
         <Nav pullRight>

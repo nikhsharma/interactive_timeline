@@ -5,7 +5,6 @@ const Timeline = (props) => {
     <div className='timeline'>
       <div className='hline'></div>
       {props.events}
-      <button className='move-button'>Move timeline</button>
     </div>
   )
 }
