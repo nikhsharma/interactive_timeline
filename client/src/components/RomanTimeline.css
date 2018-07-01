@@ -1,139 +1,91 @@
 .timeline {
-  width: 50vh;
-  height: 100vw;
-  overflow-y: auto;
-  overflow-x: hidden;
-  transform:rotate(-90deg) translateY(-50vh) translateX(-20vh);
-  transform-origin: right top;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  width: 100vw;
+  /* padding-top: 8vh; */
+  display: flex;
+  jusiify-content: space-around;
 }
 
-.timeline.scroll {
-  behavior: 'smooth';
+body {
+  scroll-behavior: 'smooth';
+}
+
+.timeline-content {
+  height: 50vh;
+  width: 100vw;
 }
 
 .hline {
-  width:100%;
-  height:1px;
-  background: red;
-  z-index: 1 }
-
-.timeline li {
-  width:100%; height:1px;
-  min-width: 500px;
-  height: 50vh;
-  transform: rotate(90deg) translateY(20vh);
-  transform-origin: center;
-  background-color: tranparent;
-  overflow: hidden;
+  width:105vw;
+  height:5px;
+  background: #fff;
+  position: fixed;
+  top: 245px;
+  z-index: 0;
 }
 
-html, body {
+body {
   color: black;
   background: black;
   background-image: url("https://upload.wikimedia.org/wikipedia/commons/6/64/Cole_Thomas_The_Course_of_Empire_Destruction_1836.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
   min-width: 700px;
-  z-index: 0;
-}
-
-
-
-/* ---- Timeline ---- */
-ol {
-  position: relative;
-  display: block;
-  margin: 100px;
-  height: 4px;
-  background: #31708F;
-}
-ol::before,
-ol::after {
-  content: "";
-  position: absolute;
-  top: -8px;
-  display: block;
-  width: 0;
-  height: 0;
-  border-radius: 10px;
-  border: 10px solid #31708F;
-}
-ol::before {
-  left: -5px;
-}
-ol::after {
-  right: -10px;
-  border: 10px solid transparent;
-  border-right: 0;
-  border-left: 20px solid blue;
-  border-radius: 3px;
 }
 
 /* ---- Timeline elements ---- */
-li {
-  position: relative;
-  display: inline-block;
-  float: left;
-  width: 150px;
-  height: 50px;
-}
-li .event {
-  position: absolute;
-  font: bold 14px arial;  top: -47px;
-  left: 36%;
-  color: blue;
+.event {
+  font: bold 14px arial;
+  /* padding: 30px; */
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
 }
 
-li .date {
-  position: center;
-  width: 120px;
-  line-height: 120px;
+.event:nth-child(even) {
+  flex-direction:column-reverse;
+  position: relative;
+  bottom: 34px;
+}
+
+.date {
+  width: 100px;
+  line-height: 100px;
   border-radius: 50%;
   text-align: center;
-  font-size: 32px;
+  font-size: 1.2rem;
   border: 2px solid #666;
   background-color: white;
 }
 
-li .description {
-  display: none;
-  background-color: yellow;
-  padding: 10px;
-  margin-top: 20px;
-  position: relative;
-  font-weight: normal;
-  z-index: 1;
-}
-.description::before {
-  content: '';
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-bottom: 5px solid purple;
-  position: absolute;
-  top: -5px;
-  left: 43%;
-}
-
 /* ---- Hover effects ---- */
-li:hover {
+.event:hover {
   cursor: pointer;
   color: red;
 }
-li:hover .description {
-  display: block;
+
+.move-button {
+  position: fixed;
+  z-index: 2;
 }
 
 .content {
   padding: 20px 30px;
   background-color: white;
-  position: relative;
   border: 1px solid black;
   border-radius: 6px;
+  white-space: normal;
+  width: 400px;
 }
 
-.event {
-  padding: 30px;
+.point {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+  margin: 10px;
 }
-
-.hline { width:100%; height:1px; background: #fff }

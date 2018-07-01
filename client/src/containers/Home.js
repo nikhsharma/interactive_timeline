@@ -20,7 +20,7 @@ export default class Home extends Component {
     fetch(url).then(res => res.json()).then(data => {
       this.setState({
         data: data.query.pages[Object.keys(data.query.pages)].cirrusdoc[0].source.auxiliary_text
-      });     
+      });
       this.handleapidata(datatoignore);
     });
   }
@@ -45,7 +45,7 @@ export default class Home extends Component {
     // Stores data in the formattedapidata array within the state.
     this.setState({ formattedapidata: finsiheddata });
     this.createobjectsfordb()
-  } 
+  }
   createobjectsfordb(){
     const databaseEntries = [];
 

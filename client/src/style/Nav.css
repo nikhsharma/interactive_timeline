@@ -1,10 +1,18 @@
-.navbar {
+/* .navbar {
   border-bottom: 3px solid rgba(0,0,0,0.75);
   background-color: SEASHELL;
   text-align: right;
   height: 6vh;
-}
+  width: 100vw; */
+  /* position: fixed; */
+ /* } */
 
+.navbar {
+  margin-bottom: 0;
+  border-bottom: 3px solid rgba(0,0,0,0.75);
+  background-color: SEASHELL;
+}
+/*
 .navbar h1 {
   margin: 0;
   margin-top: 10px;
@@ -30,4 +38,4 @@
 
 .title {
   float: left;
-}
+} */
