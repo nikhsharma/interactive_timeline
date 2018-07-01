@@ -21,8 +21,8 @@ export default class RomeTimeline extends Component {
   scrollDiv(){
       if (!document.querySelector('.timeline')) return null;
 
-      if(document.querySelector('.timeline').scrollTop<(document.querySelector('.timeline').scrollHeight-document.querySelector('.timeline').offsetHeight)){-1
-        document.querySelector('.timeline').scrollTop=document.querySelector('.timeline').scrollTop+1
+      if(document.querySelector('.timeline').scrollLeft<(document.querySelector('.timeline').scrollWidth-document.querySelector('.timeline').offsetWidth)){-1
+        document.querySelector('.timeline').scrollLeft=document.querySelector('.timeline').scrollLeft+1
             }
       else {document.querySelector('.timeline').scrollTop=0;}
     }
@@ -32,20 +32,22 @@ export default class RomeTimeline extends Component {
     if (!this.state.data) return null;
     const events = this.state.data.map( event => (
         <div className="event">
-          <li  key={event.data_date}>
+          {/* <li  key={event.data_date}> */}
             <div className="date">
               {event.data_date}
             </div>
-            <span className="point"></span>
             <div className="content ">
               {event.content}
             </div>
-          </li>
+          {/* </li> */}
         </div>
     ))
     return  (
+      <div className='timeline-content'>
       <div className='timeline'>
+        <div className='hline'></div>
         {events}
+      </div>
       </div>
     );
   }
