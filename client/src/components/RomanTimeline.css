@@ -46,11 +46,11 @@ body {
   z-index: 1;
 }
 
-/* .event:nth-child(even) {
+.event:nth-child(even) {
   flex-direction:column-reverse;
   position: relative;
-  bottom: 18vh;
-} */
+  top: 13px;
+}
 
 .date {
   width: 100px;
