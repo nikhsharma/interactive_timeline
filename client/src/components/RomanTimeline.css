@@ -8,6 +8,17 @@
   jusiify-content: space-around;
 }
 
+.timeline-bg {
+  width: 100%;
+  height: 50vh;
+  position: absolute;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  transition: 1s;
+}
+
 body {
   scroll-behavior: 'smooth';
 }
@@ -29,7 +40,7 @@ body {
 body {
   color: black;
   background: black;
-  background-image: url("https://upload.wikimedia.org/wikipedia/commons/6/64/Cole_Thomas_The_Course_of_Empire_Destruction_1836.jpg");
+  /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/6/64/Cole_Thomas_The_Course_of_Empire_Destruction_1836.jpg"); */
   background-size: cover;
   background-repeat: no-repeat;
   min-width: 700px;
@@ -86,6 +97,13 @@ body {
   height: 5px;
   width: 15px;
   /* border-radius: 50%; */
-  background-color: rgba(255,255,255, 0.9);
+  background-color: rgba(255,255,255, 0.5);
   margin: 10px;
+  transition: 0.2s;
+}
+
+.event:hover .point {
+  background-color: #FFF;
+  height: 5px;
+  transition: 0.2s;
 }
