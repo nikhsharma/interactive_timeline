@@ -1,7 +1,7 @@
 .timeline {
   width: 50vh;
   height: 100vw;
-  overflow-y: auto;x
+  overflow-y: auto;
   overflow-x: hidden;
   transform:rotate(-90deg) translateY(-50vh) translateX(-20vh);
   transform-origin: right top;

@@ -10,17 +10,10 @@ body {
   display: none;
 }
 
-<<<<<<< HEAD
-h2, p, h1, a {
-  font-family: 'Encode Sans Condensed', sans-serif;
-  /* font-weight: bold; */
-  text-decoration: none;
-}
-=======
 h2 {
     text-decoration: none;
 }
+
 #root {
   
 }
->>>>>>> 8721dc02539764d56c88a82d859593cbd6f7f0ae

@@ -13,8 +13,9 @@ export default class RomeTimeline extends Component {
 
   componentDidMount() {
     const url = '/api/history'
-    fetch(url).then(res => res.json()).then(data => this.setState({data: data['0'].data}))
+    fetch(url).then(res => res.json()).then(data => this.setState({ data: data['0'].databaseEntries}))
     // this.pageScroll();
+    console.log("hello")
     setInterval(this.scrollDiv,50)
   }
 
