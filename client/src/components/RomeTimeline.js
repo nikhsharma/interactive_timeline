@@ -15,6 +15,7 @@ export default class RomeTimeline extends Component {
     }
     this.scrollDiv = this.scrollDiv.bind(this)
     this.handleFavClick = this.handleFavClick.bind(this);
+    this.removeFavourite = this.removeFavourite.bind(this);
   }
 
   componentDidMount() {
@@ -39,9 +40,27 @@ export default class RomeTimeline extends Component {
     localStorage.setItem('saved', JSON.stringify(this.state.favourites));
   }
 
-  scrollDiv(){
-    const timeline = document.querySelector('.timeline');
-    if (timeline) {
+  removeFavourite(fave) {
+    this.state.favourites.forEach((favourite, index) => {
+      let newFavs = this.state.favourites
+      if (favourite.content === fave.content) {
+        newFavs.splice(index, 1)
+      }
+      this.setState({favourites: newFavs})
+      localStorage.setItem('saved', JSON.stringify(newFavs))
+  })
+  // console.log('asfas');
+  // for (let i = 0; i < this.state.favourites.length; i++) {
+  //   if (this.state.favourites[i] === fave) {
+  //     this.state.favourites.slice(i, 1);
+  //
+  //   }
+  // }
+}
+
+scrollDiv(){
+  const timeline = document.querySelector('.timeline');
+  if (timeline) {
     if(timeline.scrollLeft<(timeline.scrollWidth-timeline.offsetWidth)){
       timeline.scrollLeft=timeline.scrollLeft+this.state.scrollSpeed
       if (timeline.scrollLeft < 1950) {
@@ -62,15 +81,15 @@ export default class RomeTimeline extends Component {
     }
     else {document.querySelector('.timeline').scrollLeft=0;}
   }
-  }
+}
 
 
-  render() {
-    let events = [{
-      data_date: 'sdf',
-      content: 'sdfasdf'
-    }]
-    if (this.state.data) {
+render() {
+  let events = [{
+    data_date: 'sdf',
+    content: 'sdfasdf'
+  }]
+  if (this.state.data) {
     events = this.state.data.map( event => (
       <div key={event.data_date} id={event.data_date} className="event">
         <div className="date">
@@ -85,14 +104,14 @@ export default class RomeTimeline extends Component {
     ))
   }
 
-      return  (
-        <div className='timeline-content'>
-          <div className='timeline-bg'></div>
-          <Button bsClass='move-button1'>Move timeline 1</Button>
-          <Timeline events={events}/>
-          <h2>Favourite Events</h2>
-          <Favourites favs={this.state.favourites}/>
-        </div>
-      );
-    }
-  }
+  return  (
+    <div className='timeline-content'>
+      <div className='timeline-bg'></div>
+      <Button bsClass='move-button1'>Move timeline 1</Button>
+      <Timeline events={events}/>
+      <h2>Favourite Events</h2>
+      <Favourites favs={this.state.favourites} removeFavourite={this.removeFavourite}/>
+    </div>
+  );
+}
+}
