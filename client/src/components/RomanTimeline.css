@@ -23,7 +23,7 @@ body {
 }
 
 .timeline-content {
-  height: 50vh;
+  /* height: 85vh; */
   width: 100vw;
 }
 
@@ -31,7 +31,7 @@ body {
   width:105vw;
   height:5px;
   background: rgba(255, 255, 255, 0.2);
-  position: fixed;
+  position: absolute;
   top: 244px;
   z-index: 0;
 }
@@ -50,7 +50,7 @@ body {
 .event:nth-child(even) {
   flex-direction:column-reverse;
   position: relative;
-  bottom: 34px;
+  bottom: 50px;
 }
 
 .date {
@@ -81,6 +81,8 @@ body {
   border-radius: 6px;
   white-space: normal;
   width: 400px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .point {
@@ -96,4 +98,10 @@ body {
   background-color: #FFF;
   height: 5px;
   transition: 0.2s;
+}
+
+.favourites {
+  height: 30vh;
+  background-color: #fff;
+  overflow-x: scroll;
 }

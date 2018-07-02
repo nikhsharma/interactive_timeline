@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Button} from 'react-bootstrap';
+import FavouriteButton from './FavouriteButton';
 import Timeline from './Timeline';
+import Favourites from './Favourites';
 import './RomanTimeline.css'
 
 export default class RomeTimeline extends Component {
@@ -8,9 +10,11 @@ export default class RomeTimeline extends Component {
     super(props);
     this.state = {
       data: [],
-      scrollSpeed: 1
+      scrollSpeed: 1,
+      favourites: []
     }
     this.scrollDiv = this.scrollDiv.bind(this)
+    this.handleFavClick = this.handleFavClick.bind(this);
   }
 
   componentDidMount() {
@@ -23,6 +27,14 @@ export default class RomeTimeline extends Component {
     button.addEventListener('click', () => {
       document.querySelector('.timeline').scrollLeft=1000
     })
+  }
+
+  handleFavClick(currentEvent) {
+    const newFavs = this.state.favourites;
+    newFavs.push(currentEvent);
+    this.setState({favourites: newFavs})
+    this.forceUpdate();
+    console.log(this.state.favourites);
   }
 
   scrollDiv(){
@@ -61,20 +73,17 @@ export default class RomeTimeline extends Component {
         <div className='point'></div>
         <div className="content ">
           {event.content}
+          <FavouriteButton eventToSave={event} handleClick={this.handleFavClick}/>
         </div>
       </div>
     ))
-
-    console.log(document.querySelector('.content'));
-    // document.querySelector('.event').addEventListener('mouseOver', () => this.setState({scrollSpeed: 0}))
-    // document.querySelector('.event').addEventListener('mouseOut', () => this.setState({scrollSpeed: 1}))
-
 
       return  (
         <div className='timeline-content'>
           <div className='timeline-bg'></div>
           <Button bsClass='move-button1'>Move timeline 1</Button>
           <Timeline events={events}/>
+          <Favourites favs={this.state.favourites}/>
         </div>
       );
     }
