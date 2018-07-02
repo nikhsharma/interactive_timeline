@@ -27,6 +27,8 @@ export default class RomeTimeline extends Component {
     button.addEventListener('click', () => {
       document.querySelector('.timeline').scrollLeft=1000
     })
+    if (!localStorage.getItem('saved')) return null;
+    this.setState({favourites: JSON.parse(localStorage.getItem('saved'))})
   }
 
   handleFavClick(currentEvent) {
@@ -34,7 +36,7 @@ export default class RomeTimeline extends Component {
     newFavs.push(currentEvent);
     this.setState({favourites: newFavs})
     this.forceUpdate();
-    console.log(this.state.favourites);
+    localStorage.setItem('saved', JSON.stringify(this.state.favourites));
   }
 
   scrollDiv(){
