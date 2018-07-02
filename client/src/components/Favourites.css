@@ -13,4 +13,11 @@
   width: 20vw;
   margin: 2vw;
   padding: 10px;
+  transition: 0.3s;
+}
+
+.saved:hover {
+  background-color: blue;
+  color: #FFF;
+  transition: 0.3s;
 }
