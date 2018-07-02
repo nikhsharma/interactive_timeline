@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './Favourites.css'
 // import FavouriteButton from '../components/FavouriteButton';
 
 export default class Favourites extends Component {
@@ -20,7 +21,6 @@ export default class Favourites extends Component {
 
     return (
       <div className='favourites'>
-        <p>faves</p>
         {favs}
       </div>
     )

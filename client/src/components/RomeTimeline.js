@@ -85,6 +85,7 @@ export default class RomeTimeline extends Component {
           <div className='timeline-bg'></div>
           <Button bsClass='move-button1'>Move timeline 1</Button>
           <Timeline events={events}/>
+          <h2>Favourite Events</h2>
           <Favourites favs={this.state.favourites}/>
         </div>
       );
