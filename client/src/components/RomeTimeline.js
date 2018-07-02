@@ -39,12 +39,12 @@ export default class RomeTimeline extends Component {
       } else if (3050 < timeline.scrollLeft && timeline.scrollLeft < 4950) {
         document.querySelector('.timeline-bg').style.filter = 'blur(10px)'
         document.querySelector('.timeline-bg').style.backgroundImage = 'url(https://upload.wikimedia.org/wikipedia/commons/1/1a/Cole_Thomas_The_Consummation_The_Course_of_the_Empire_1836.jpg)'
-      } else if (4950 < timeline.scrollLeft && timeline.scrollLeft < 5050) {
-        document.querySelector('.timeline-bg').style.filter = 'blur(10px)'
-        document.querySelector('.timeline-bg').style.backgroundImage = 'url(https://upload.wikimedia.org/wikipedia/commons/6/64/Cole_Thomas_The_Course_of_Empire_Destruction_1836.jpg)'
-      } else if (5050 < timeline.scrollLeft && timeline.scrollLeft < 9000) {
+      } else if (4950 < timeline.scrollLeft && timeline.scrollLeft < 8000) {
         document.querySelector('.timeline-bg').style.filter = ''
-        document.querySelector('.timeline-bg').style.backgroundImage = 'url(https://upload.wikimedia.org/wikipedia/commons/6/64/Cole_Thomas_The_Course_of_Empire_Desolation_1836.jpg)'
+        document.querySelector('.timeline-bg').style.backgroundImage = 'url(https://upload.wikimedia.org/wikipedia/commons/6/64/Cole_Thomas_The_Course_of_Empire_Destruction_1836.jpg)'
+      } else if (8000 < timeline.scrollLeft) {
+        document.querySelector('.timeline-bg').style.filter = ''
+        document.querySelector('.timeline-bg').style.backgroundImage = 'url(https://upload.wikimedia.org/wikipedia/commons/7/77/Cole_Thomas_The_Course_of_Empire_Desolation_1836.jpg)'
       }
     }
     else {document.querySelector('.timeline').scrollLeft=0;}
