@@ -57,6 +57,12 @@ body {
   bottom: 50px;
 }
 
+.event .save-button:active {
+  position: relative;
+  top: 2px;
+  transition: 0.2s;
+}
+
 .date {
   width: 100px;
   line-height: 100px;

@@ -41,7 +41,7 @@ export default class RomeTimeline extends Component {
 
   scrollDiv(){
     const timeline = document.querySelector('.timeline');
-    if (!timeline) return null;
+    if (timeline) {
     if(timeline.scrollLeft<(timeline.scrollWidth-timeline.offsetWidth)){
       timeline.scrollLeft=timeline.scrollLeft+this.state.scrollSpeed
       if (timeline.scrollLeft < 1950) {
@@ -62,12 +62,16 @@ export default class RomeTimeline extends Component {
     }
     else {document.querySelector('.timeline').scrollLeft=0;}
   }
+  }
 
 
   render() {
-
-    if (!this.state.data) return null;
-    const events = this.state.data.map( event => (
+    let events = [{
+      data_date: 'sdf',
+      content: 'sdfasdf'
+    }]
+    if (this.state.data) {
+    events = this.state.data.map( event => (
       <div key={event.data_date} id={event.data_date} className="event">
         <div className="date">
           {event.data_date}
@@ -79,6 +83,7 @@ export default class RomeTimeline extends Component {
         </div>
       </div>
     ))
+  }
 
       return  (
         <div className='timeline-content'>
