@@ -3,7 +3,6 @@
   overflow-y: hidden;
   white-space: nowrap;
   width: 100vw;
-  /* padding-top: 8vh; */
   display: flex;
   jusiify-content: space-around;
 }
@@ -35,15 +34,6 @@ body {
   position: fixed;
   top: 244px;
   z-index: 0;
-}
-
-body {
-  color: black;
-  background: black;
-  /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/6/64/Cole_Thomas_The_Course_of_Empire_Destruction_1836.jpg"); */
-  background-size: cover;
-  background-repeat: no-repeat;
-  min-width: 700px;
 }
 
 /* ---- Timeline elements ---- */
