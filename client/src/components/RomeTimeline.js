@@ -16,6 +16,7 @@ export default class RomeTimeline extends Component {
     this.scrollDiv = this.scrollDiv.bind(this)
     this.timeHop = this.timeHop.bind(this)
     this.handleFavClick = this.handleFavClick.bind(this);
+    this.removeFavourite = this.removeFavourite.bind(this);
   }
 
   componentDidMount() {
@@ -36,30 +37,48 @@ export default class RomeTimeline extends Component {
     localStorage.setItem('saved', JSON.stringify(this.state.favourites));
   }
 
-  scrollDiv(){
-    const timeline = document.querySelector('.timeline');
-    if (timeline) {
-      if(timeline.scrollLeft<(timeline.scrollWidth-timeline.offsetWidth)){
-        timeline.scrollLeft=timeline.scrollLeft+this.state.scrollSpeed
-        if (timeline.scrollLeft < 1950) {
-          document.querySelector('.timeline-bg').style.filter = ''
-          document.querySelector('.timeline-bg').style.backgroundImage = 'url(https://upload.wikimedia.org/wikipedia/commons/8/8c/Cole_Thomas_The_Course_of_Empire_The_Arcadian_or_Pastoral_State_1836.jpg)'
-        } else if (1950 < timeline.scrollLeft && timeline.scrollLeft < 3050) {
-          document.querySelector('.timeline-bg').style.filter = 'blur(10px)'
-        } else if (3050 < timeline.scrollLeft && timeline.scrollLeft < 4950) {
-          document.querySelector('.timeline-bg').style.filter = 'blur(10px)'
-          document.querySelector('.timeline-bg').style.backgroundImage = 'url(https://upload.wikimedia.org/wikipedia/commons/1/1a/Cole_Thomas_The_Consummation_The_Course_of_the_Empire_1836.jpg)'
-        } else if (4950 < timeline.scrollLeft && timeline.scrollLeft < 8000) {
-          document.querySelector('.timeline-bg').style.filter = ''
-          document.querySelector('.timeline-bg').style.backgroundImage = 'url(https://upload.wikimedia.org/wikipedia/commons/6/64/Cole_Thomas_The_Course_of_Empire_Destruction_1836.jpg)'
-        } else if (8000 < timeline.scrollLeft) {
-          document.querySelector('.timeline-bg').style.filter = ''
-          document.querySelector('.timeline-bg').style.backgroundImage = 'url(https://upload.wikimedia.org/wikipedia/commons/7/77/Cole_Thomas_The_Course_of_Empire_Desolation_1836.jpg)'
-        }
+  removeFavourite(fave) {
+    this.state.favourites.forEach((favourite, index) => {
+      let newFavs = this.state.favourites
+      if (favourite.content === fave.content) {
+        newFavs.splice(index, 1)
+      }
+      this.setState({favourites: newFavs})
+      localStorage.setItem('saved', JSON.stringify(newFavs))
+  })
+  // console.log('asfas');
+  // for (let i = 0; i < this.state.favourites.length; i++) {
+  //   if (this.state.favourites[i] === fave) {
+  //     this.state.favourites.slice(i, 1);
+  //
+  //   }
+  // }
+}
+
+scrollDiv(){
+  const timeline = document.querySelector('.timeline');
+  if (timeline) {
+    if(timeline.scrollLeft<(timeline.scrollWidth-timeline.offsetWidth)){
+      timeline.scrollLeft=timeline.scrollLeft+this.state.scrollSpeed
+      if (timeline.scrollLeft < 1950) {
+        document.querySelector('.timeline-bg').style.filter = ''
+        document.querySelector('.timeline-bg').style.backgroundImage = 'url(https://upload.wikimedia.org/wikipedia/commons/8/8c/Cole_Thomas_The_Course_of_Empire_The_Arcadian_or_Pastoral_State_1836.jpg)'
+      } else if (1950 < timeline.scrollLeft && timeline.scrollLeft < 2050) {
+        document.querySelector('.timeline-bg').style.filter = 'blur(10px)'
+      } else if (2050 < timeline.scrollLeft && timeline.scrollLeft < 3950) {
+        document.querySelector('.timeline-bg').style.filter = ''
+        document.querySelector('.timeline-bg').style.backgroundImage = 'url(https://upload.wikimedia.org/wikipedia/commons/1/1a/Cole_Thomas_The_Consummation_The_Course_of_the_Empire_1836.jpg)'
+      } else if (3950 < timeline.scrollLeft && timeline.scrollLeft < 4050) {
+        document.querySelector('.timeline-bg').style.filter = 'blur(10px)'
+        document.querySelector('.timeline-bg').style.backgroundImage = 'url(https://upload.wikimedia.org/wikipedia/commons/6/64/Cole_Thomas_The_Course_of_Empire_Destruction_1836.jpg)'
+      } else if (4050 < timeline.scrollLeft && timeline.scrollLeft < 8000) {
+        document.querySelector('.timeline-bg').style.filter = ''
+        document.querySelector('.timeline-bg').style.backgroundImage = 'url(https://upload.wikimedia.org/wikipedia/commons/7/77/Cole_Thomas_The_Course_of_Empire_Desolation_1836.jpg)'
       }
       else {document.querySelector('.timeline').scrollLeft=0;}
     }
   }
+}
 
   timeHop(position) {
     if (!document.querySelector('.timeline')) return null;
@@ -81,7 +100,7 @@ export default class RomeTimeline extends Component {
           <div className='point'></div>
           <div className="content ">
             {event.content}
-            <FavouriteButton eventToSave={event} handleClick={this.handleFavClick}/>
+            <FavouriteButton eventToSave={event} handleClick={this.handleFavClick} removeFavourite={this.removeFavourite}/>
           </div>
         </div>
       ))
@@ -103,7 +122,7 @@ export default class RomeTimeline extends Component {
           <Button bsClass=".move-button1" onClick={() => this.timeHop(50000)}>1453	The Byzantine Empire ends</Button>
           <Timeline events={events}/>
           <h2>Favourite Events</h2>
-          <Favourites favs={this.state.favourites}/>
+          <Favourites favs={this.state.favourites} removeFavourite={this.removeFavourite} />
 
         </div>
       );
