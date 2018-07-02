@@ -9,7 +9,7 @@
 
 .timeline-bg {
   width: 100%;
-  height: 50vh;
+  height: 400px;
   position: absolute;
   z-index: -1;
   background-size: cover;
@@ -23,7 +23,7 @@ body {
 }
 
 .timeline-content {
-  height: 50vh;
+  /* height: 85vh; */
   width: 100vw;
 }
 
@@ -98,4 +98,10 @@ body {
   background-color: #FFF;
   height: 5px;
   transition: 0.2s;
+}
+
+.favourites {
+  height: 30vh;
+  background-color: #fff;
+  overflow-x: scroll;
 }

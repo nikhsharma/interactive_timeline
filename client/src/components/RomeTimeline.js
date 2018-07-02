@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Button} from 'react-bootstrap';
 import FavouriteButton from './FavouriteButton';
 import Timeline from './Timeline';
-// import Favourites from './Favourites';
+import Favourites from './Favourites';
 import './RomanTimeline.css'
 
 export default class RomeTimeline extends Component {
@@ -33,6 +33,7 @@ export default class RomeTimeline extends Component {
     const newFavs = this.state.favourites;
     newFavs.push(currentEvent);
     this.setState({favourites: newFavs})
+    this.forceUpdate();
     console.log(this.state.favourites);
   }
 
@@ -82,7 +83,7 @@ export default class RomeTimeline extends Component {
           <div className='timeline-bg'></div>
           <Button bsClass='move-button1'>Move timeline 1</Button>
           <Timeline events={events}/>
-          {/* <Favourites favs={this.state.favourites}/> */}
+          <Favourites favs={this.state.favourites}/>
         </div>
       );
     }

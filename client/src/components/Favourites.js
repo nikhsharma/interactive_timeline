@@ -2,24 +2,27 @@ import React, {Component} from 'react';
 // import FavouriteButton from '../components/FavouriteButton';
 
 export default class Favourites extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      favourites: []
-    }
-  }
 
-  componentDidMount() {
-    this.setState({favourites: this.props.favourites})
-  }
 
   render() {
-    if (!this.state.favourites) return null;
-    const favs = this.state.favourites.map( fav => (
-      <p>save</p>
-    ))
+    let favs;
+    console.log('before');
+    console.log(this.props.favs);
+    if (this.props.favs) {
+      favs = this.props.favs.map( fav => (
+        <div className='saved'>
+          <p>{fav.data_date}</p>
+          <p>{fav.content}</p>
+        </div>
+    ))}
+    console.log('after');
+
+
     return (
-      <div className='favourites'>{favs}</div>
+      <div className='favourites'>
+        <p>faves</p>
+        {favs}
+      </div>
     )
   }
 }
