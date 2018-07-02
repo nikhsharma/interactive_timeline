@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Button} from 'react-bootstrap';
+import FavouriteButton from './FavouriteButton';
 import Timeline from './Timeline';
+import Favourites from './Favourites';
 import './RomanTimeline.css'
 
 export default class RomeTimeline extends Component {
@@ -8,10 +10,12 @@ export default class RomeTimeline extends Component {
     super(props);
     this.state = {
       data: [],
-      scrollSpeed: 1
+      scrollSpeed: 1,
+      favourites: []
     }
     this.scrollDiv = this.scrollDiv.bind(this)
     this.timeHop = this.timeHop.bind(this)
+    this.handleFavClick = this.handleFavClick.bind(this);
   }
 
   componentDidMount() {
@@ -20,15 +24,25 @@ export default class RomeTimeline extends Component {
       this.setState({ data: data})
     })
     setInterval(this.scrollDiv,30)
-    const button = document.querySelector('.move-button2')
-    // button.addEventListener('click', () => {
-    //   document.querySelector('.timeline').scrollLeft=1000
-    // })
+    const button = document.querySelector('.move-button1')
+    button.addEventListener('click', () => {
+      document.querySelector('.timeline').scrollLeft=1000
+    })
+    if (!localStorage.getItem('saved')) return null;
+    this.setState({favourites: JSON.parse(localStorage.getItem('saved'))})
+  }
+
+  handleFavClick(currentEvent) {
+    const newFavs = this.state.favourites;
+    newFavs.push(currentEvent);
+    this.setState({favourites: newFavs})
+    this.forceUpdate();
+    localStorage.setItem('saved', JSON.stringify(this.state.favourites));
   }
 
   scrollDiv(){
     const timeline = document.querySelector('.timeline');
-    if (!timeline) return null;
+    if (timeline) {
     if(timeline.scrollLeft<(timeline.scrollWidth-timeline.offsetWidth)){
       timeline.scrollLeft=timeline.scrollLeft+this.state.scrollSpeed
       if (timeline.scrollLeft < 1950) {
@@ -49,6 +63,7 @@ export default class RomeTimeline extends Component {
     }
     else {document.querySelector('.timeline').scrollLeft=0;}
   }
+  }
 
   timeHop(position) {
     if (!document.querySelector('.timeline')) return null;
@@ -57,9 +72,12 @@ export default class RomeTimeline extends Component {
 
 
   render() {
-
-    if (!this.state.data) return null;
-    const events = this.state.data.map( event => (
+    let events = [{
+      data_date: 'sdf',
+      content: 'sdfasdf'
+    }]
+    if (this.state.data) {
+    events = this.state.data.map( event => (
       <div key={event.data_date} id={event.data_date} className="event">
         <div className="date">
           {event.data_date}
@@ -67,6 +85,7 @@ export default class RomeTimeline extends Component {
         <div className='point'></div>
         <div className="content ">
           {event.content}
+          <FavouriteButton eventToSave={event} handleClick={this.handleFavClick}/>
         </div>
       </div>
     ))
@@ -89,5 +108,17 @@ export default class RomeTimeline extends Component {
         <Timeline events={events}/>
       </div>
     );
+  }
+
+      return  (
+        <div className='timeline-content'>
+          <div className='timeline-bg'></div>
+          <Button bsClass='move-button1'>Move timeline 1</Button>
+          <Timeline events={events}/>
+          <h2>Favourite Events</h2>
+          <Favourites favs={this.state.favourites}/>
+        </div>
+      );
+    }
   }
 }

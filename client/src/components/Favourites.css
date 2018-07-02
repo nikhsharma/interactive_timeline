@@ -1,0 +1,23 @@
+.favourites {
+  background-color: #fff;
+  overflow-x: scroll;
+  height: 30vh;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 5vh;
+}
+
+.saved {
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 20vw;
+  margin: 2vw;
+  padding: 10px;
+  transition: 0.3s;
+}
+
+.saved:hover {
+  background-color: blue;
+  color: #FFF;
+  transition: 0.3s;
+}
