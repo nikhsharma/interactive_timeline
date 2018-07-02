@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './FavouriteButton.css';
-import './Favourites';
+import Favourites from './Favourites';
 
 export default class FavouriteButton extends Component {
   constructor(props) {
@@ -30,6 +30,7 @@ export default class FavouriteButton extends Component {
     return (
       <div className="save-button">
         <button onClick={() => this.state.handleFavClick()} type="submit">
+        {/* <button onClick={() => console.log("Testing click")} type="submit"> */}
           <img src="https://cdn3.iconfinder.com/data/icons/linecons-free-vector-icons-pack/32/star-512.png" width="19" height="15" alt="Save" />
         </button>
       </div>
