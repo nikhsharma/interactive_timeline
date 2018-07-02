@@ -24,10 +24,6 @@ export default class RomeTimeline extends Component {
       this.setState({ data: data})
     })
     setInterval(this.scrollDiv,30)
-    const button = document.querySelector('.move-button1')
-    button.addEventListener('click', () => {
-      document.querySelector('.timeline').scrollLeft=1000
-    })
     if (!localStorage.getItem('saved')) return null;
     this.setState({favourites: JSON.parse(localStorage.getItem('saved'))})
   }
@@ -43,26 +39,26 @@ export default class RomeTimeline extends Component {
   scrollDiv(){
     const timeline = document.querySelector('.timeline');
     if (timeline) {
-    if(timeline.scrollLeft<(timeline.scrollWidth-timeline.offsetWidth)){
-      timeline.scrollLeft=timeline.scrollLeft+this.state.scrollSpeed
-      if (timeline.scrollLeft < 1950) {
-        document.querySelector('.timeline-bg').style.filter = ''
-        document.querySelector('.timeline-bg').style.backgroundImage = 'url(https://upload.wikimedia.org/wikipedia/commons/8/8c/Cole_Thomas_The_Course_of_Empire_The_Arcadian_or_Pastoral_State_1836.jpg)'
-      } else if (1950 < timeline.scrollLeft && timeline.scrollLeft < 3050) {
-        document.querySelector('.timeline-bg').style.filter = 'blur(10px)'
-      } else if (3050 < timeline.scrollLeft && timeline.scrollLeft < 4950) {
-        document.querySelector('.timeline-bg').style.filter = 'blur(10px)'
-        document.querySelector('.timeline-bg').style.backgroundImage = 'url(https://upload.wikimedia.org/wikipedia/commons/1/1a/Cole_Thomas_The_Consummation_The_Course_of_the_Empire_1836.jpg)'
-      } else if (4950 < timeline.scrollLeft && timeline.scrollLeft < 8000) {
-        document.querySelector('.timeline-bg').style.filter = ''
-        document.querySelector('.timeline-bg').style.backgroundImage = 'url(https://upload.wikimedia.org/wikipedia/commons/6/64/Cole_Thomas_The_Course_of_Empire_Destruction_1836.jpg)'
-      } else if (8000 < timeline.scrollLeft) {
-        document.querySelector('.timeline-bg').style.filter = ''
-        document.querySelector('.timeline-bg').style.backgroundImage = 'url(https://upload.wikimedia.org/wikipedia/commons/7/77/Cole_Thomas_The_Course_of_Empire_Desolation_1836.jpg)'
+      if(timeline.scrollLeft<(timeline.scrollWidth-timeline.offsetWidth)){
+        timeline.scrollLeft=timeline.scrollLeft+this.state.scrollSpeed
+        if (timeline.scrollLeft < 1950) {
+          document.querySelector('.timeline-bg').style.filter = ''
+          document.querySelector('.timeline-bg').style.backgroundImage = 'url(https://upload.wikimedia.org/wikipedia/commons/8/8c/Cole_Thomas_The_Course_of_Empire_The_Arcadian_or_Pastoral_State_1836.jpg)'
+        } else if (1950 < timeline.scrollLeft && timeline.scrollLeft < 3050) {
+          document.querySelector('.timeline-bg').style.filter = 'blur(10px)'
+        } else if (3050 < timeline.scrollLeft && timeline.scrollLeft < 4950) {
+          document.querySelector('.timeline-bg').style.filter = 'blur(10px)'
+          document.querySelector('.timeline-bg').style.backgroundImage = 'url(https://upload.wikimedia.org/wikipedia/commons/1/1a/Cole_Thomas_The_Consummation_The_Course_of_the_Empire_1836.jpg)'
+        } else if (4950 < timeline.scrollLeft && timeline.scrollLeft < 8000) {
+          document.querySelector('.timeline-bg').style.filter = ''
+          document.querySelector('.timeline-bg').style.backgroundImage = 'url(https://upload.wikimedia.org/wikipedia/commons/6/64/Cole_Thomas_The_Course_of_Empire_Destruction_1836.jpg)'
+        } else if (8000 < timeline.scrollLeft) {
+          document.querySelector('.timeline-bg').style.filter = ''
+          document.querySelector('.timeline-bg').style.backgroundImage = 'url(https://upload.wikimedia.org/wikipedia/commons/7/77/Cole_Thomas_The_Course_of_Empire_Desolation_1836.jpg)'
+        }
       }
+      else {document.querySelector('.timeline').scrollLeft=0;}
     }
-    else {document.querySelector('.timeline').scrollLeft=0;}
-  }
   }
 
   timeHop(position) {
@@ -77,46 +73,38 @@ export default class RomeTimeline extends Component {
       content: 'sdfasdf'
     }]
     if (this.state.data) {
-    events = this.state.data.map( event => (
-      <div key={event.data_date} id={event.data_date} className="event">
-        <div className="date">
-          {event.data_date}
+      events = this.state.data.map( event => (
+        <div key={event.data_date} id={event.data_date} className="event">
+          <div className="date">
+            {event.data_date}
+          </div>
+          <div className='point'></div>
+          <div className="content ">
+            {event.content}
+            <FavouriteButton eventToSave={event} handleClick={this.handleFavClick}/>
+          </div>
         </div>
-        <div className='point'></div>
-        <div className="content ">
-          {event.content}
-          <FavouriteButton eventToSave={event} handleClick={this.handleFavClick}/>
-        </div>
-      </div>
-    ))
-
-    return  (
-      <div className='timeline-content'>
-        <div className='timeline-bg'></div>
-        <Button onClick={() => this.timeHop(1000)}>Foundation of Rome</Button>
-        <Button onClick={() => this.timeHop(2000)}>The Laws of the Twelve Tables 449 BCE</Button>
-        <Button onClick={() => this.timeHop(3000)}>Hannibal invades Italy 218 BCE</Button>
-        <Button onClick={() => this.timeHop(4000)}>Julius Caesar was assassinated 44 BCE</Button>
-        <Button onClick={() => this.timeHop(5000)}>Roman Empire began 27 BCE</Button>
-        <Button onClick={() => this.timeHop(5000)}>Augustus ended pontifex maximus 12 BCE</Button>
-        <Button onClick={() => this.timeHop(5000)}>306	Constantine becomes Emperor in 306 AD</Button>
-        <Button onClick={() => this.timeHop(5000)}>380	Conversion to Christianity</Button>
-        <Button onClick={() => this.timeHop(5000)}>395	Rome splits</Button>
-        <Button onClick={() => this.timeHop(5000)}>410	The Visigoths sack Rome</Button>
-        <Button onClick={() => this.timeHop(5000)}>476	End of the Western Roman Empire and the fall of Ancient Rome</Button>
-        <Button onClick={() => this.timeHop(50000)}>1453	The Byzantine Empire ends</Button>
-        <Timeline events={events}/>
-      </div>
-    );
-  }
+      ))
 
       return  (
         <div className='timeline-content'>
           <div className='timeline-bg'></div>
-          <Button bsClass='move-button1'>Move timeline 1</Button>
+          <Button bsClass=".move-button1" onClick={() => this.timeHop(1000)}>Foundation of Rome</Button>
+          <Button bsClass=".move-button1" onClick={() => this.timeHop(2000)}>The Laws of the Twelve Tables 449 BCE</Button>
+          <Button bsClass=".move-button1" onClick={() => this.timeHop(3000)}>Hannibal invades Italy 218 BCE</Button>
+          <Button bsClass=".move-button1" onClick={() => this.timeHop(4000)}>Julius Caesar was assassinated 44 BCE</Button>
+          <Button bsClass=".move-button1" onClick={() => this.timeHop(5000)}>Roman Empire began 27 BCE</Button>
+          <Button bsClass=".move-button1" onClick={() => this.timeHop(5000)}>Augustus ended pontifex maximus 12 BCE</Button>
+          <Button bsClass=".move-button1" onClick={() => this.timeHop(5000)}>306	Constantine becomes Emperor in 306 AD</Button>
+          <Button bsClass=".move-button1" onClick={() => this.timeHop(5000)}>380	Conversion to Christianity</Button>
+          <Button bsClass=".move-button1" onClick={() => this.timeHop(5000)}>395	Rome splits</Button>
+          <Button bsClass=".move-button1" onClick={() => this.timeHop(5000)}>410	The Visigoths sack Rome</Button>
+          <Button bsClass=".move-button1" onClick={() => this.timeHop(5000)}>476	End of the Western Roman Empire and the fall of Ancient Rome</Button>
+          <Button bsClass=".move-button1" onClick={() => this.timeHop(50000)}>1453	The Byzantine Empire ends</Button>
           <Timeline events={events}/>
           <h2>Favourite Events</h2>
           <Favourites favs={this.state.favourites}/>
+
         </div>
       );
     }
