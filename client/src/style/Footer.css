@@ -6,11 +6,11 @@ footer .left {
 }
 
 footer .left h4 {
-   padding-left: 2vw;
+  padding-left: 2vw;
 }
 
 footer .left h3 {
-   padding-left: 3vw;
+  padding-left: 3vw;
 }
 
 footer .right {
@@ -25,4 +25,9 @@ footer {
   margin:0px;
   padding: 0px;
   height: 5vh;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
 }
