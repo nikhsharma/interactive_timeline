@@ -14,6 +14,7 @@ export default class RomeTimeline extends Component {
       favourites: []
     }
     this.scrollDiv = this.scrollDiv.bind(this)
+    this.timeHop = this.timeHop.bind(this)
     this.handleFavClick = this.handleFavClick.bind(this);
   }
 
@@ -47,21 +48,26 @@ export default class RomeTimeline extends Component {
       if (timeline.scrollLeft < 1950) {
         document.querySelector('.timeline-bg').style.filter = ''
         document.querySelector('.timeline-bg').style.backgroundImage = 'url(https://upload.wikimedia.org/wikipedia/commons/8/8c/Cole_Thomas_The_Course_of_Empire_The_Arcadian_or_Pastoral_State_1836.jpg)'
-      } else if (1950 < timeline.scrollLeft && timeline.scrollLeft < 2050) {
+      } else if (1950 < timeline.scrollLeft && timeline.scrollLeft < 3050) {
         document.querySelector('.timeline-bg').style.filter = 'blur(10px)'
-      } else if (2050 < timeline.scrollLeft && timeline.scrollLeft < 3950) {
-        document.querySelector('.timeline-bg').style.filter = ''
+      } else if (3050 < timeline.scrollLeft && timeline.scrollLeft < 4950) {
+        document.querySelector('.timeline-bg').style.filter = 'blur(10px)'
         document.querySelector('.timeline-bg').style.backgroundImage = 'url(https://upload.wikimedia.org/wikipedia/commons/1/1a/Cole_Thomas_The_Consummation_The_Course_of_the_Empire_1836.jpg)'
-      } else if (3950 < timeline.scrollLeft && timeline.scrollLeft < 4050) {
-        document.querySelector('.timeline-bg').style.filter = 'blur(10px)'
+      } else if (4950 < timeline.scrollLeft && timeline.scrollLeft < 8000) {
+        document.querySelector('.timeline-bg').style.filter = ''
         document.querySelector('.timeline-bg').style.backgroundImage = 'url(https://upload.wikimedia.org/wikipedia/commons/6/64/Cole_Thomas_The_Course_of_Empire_Destruction_1836.jpg)'
-      } else if (4050 < timeline.scrollLeft && timeline.scrollLeft < 8000) {
+      } else if (8000 < timeline.scrollLeft) {
         document.querySelector('.timeline-bg').style.filter = ''
         document.querySelector('.timeline-bg').style.backgroundImage = 'url(https://upload.wikimedia.org/wikipedia/commons/7/77/Cole_Thomas_The_Course_of_Empire_Desolation_1836.jpg)'
       }
     }
     else {document.querySelector('.timeline').scrollLeft=0;}
   }
+  }
+
+  timeHop(position) {
+    if (!document.querySelector('.timeline')) return null;
+    document.querySelector('.timeline').scrollLeft=position;
   }
 
 
@@ -83,6 +89,25 @@ export default class RomeTimeline extends Component {
         </div>
       </div>
     ))
+
+    return  (
+      <div className='timeline-content'>
+        <div className='timeline-bg'></div>
+        <Button onClick={() => this.timeHop(1000)}>Foundation of Rome</Button>
+        <Button onClick={() => this.timeHop(2000)}>The Laws of the Twelve Tables 449 BCE</Button>
+        <Button onClick={() => this.timeHop(3000)}>Hannibal invades Italy 218 BCE</Button>
+        <Button onClick={() => this.timeHop(4000)}>Julius Caesar was assassinated 44 BCE</Button>
+        <Button onClick={() => this.timeHop(5000)}>Roman Empire began 27 BCE</Button>
+        <Button onClick={() => this.timeHop(5000)}>Augustus ended pontifex maximus 12 BCE</Button>
+        <Button onClick={() => this.timeHop(5000)}>306	Constantine becomes Emperor in 306 AD</Button>
+        <Button onClick={() => this.timeHop(5000)}>380	Conversion to Christianity</Button>
+        <Button onClick={() => this.timeHop(5000)}>395	Rome splits</Button>
+        <Button onClick={() => this.timeHop(5000)}>410	The Visigoths sack Rome</Button>
+        <Button onClick={() => this.timeHop(5000)}>476	End of the Western Roman Empire and the fall of Ancient Rome</Button>
+        <Button onClick={() => this.timeHop(50000)}>1453	The Byzantine Empire ends</Button>
+        <Timeline events={events}/>
+      </div>
+    );
   }
 
       return  (
@@ -96,3 +121,4 @@ export default class RomeTimeline extends Component {
       );
     }
   }
+}
