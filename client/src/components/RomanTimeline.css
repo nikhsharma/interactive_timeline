@@ -50,7 +50,7 @@ body {
 .event:nth-child(even) {
   flex-direction:column-reverse;
   position: relative;
-  bottom: 34px;
+  bottom: 50px;
 }
 
 .date {
@@ -81,6 +81,8 @@ body {
   border-radius: 6px;
   white-space: normal;
   width: 400px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .point {
