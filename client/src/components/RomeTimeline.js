@@ -4,6 +4,7 @@ import FavouriteButton from './FavouriteButton';
 import Timeline from './Timeline';
 import Favourites from './Favourites';
 import './RomanTimeline.css'
+import RomanMap from "./RomanMap";
 
 export default class RomeTimeline extends Component {
   constructor(props) {
@@ -154,6 +155,7 @@ scrollDiv(){
             </th>
           </tr>
           <Timeline events={events}/>
+          <RomanMap/>
           <h2>Favourite Events</h2>
           <Favourites favs={this.state.favourites} removeFavourite={this.removeFavourite} />
         </div>
