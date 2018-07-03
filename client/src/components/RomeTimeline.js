@@ -45,15 +45,15 @@ export default class RomeTimeline extends Component {
       }
       this.setState({favourites: newFavs})
       localStorage.setItem('saved', JSON.stringify(newFavs))
-  })
-  // console.log('asfas');
-  // for (let i = 0; i < this.state.favourites.length; i++) {
-  //   if (this.state.favourites[i] === fave) {
-  //     this.state.favourites.slice(i, 1);
-  //
-  //   }
-  // }
-}
+    })
+    // console.log('asfas');
+    // for (let i = 0; i < this.state.favourites.length; i++) {
+    //   if (this.state.favourites[i] === fave) {
+    //     this.state.favourites.slice(i, 1);
+    //
+    //   }
+    // }
+  }
 
 scrollDiv(){
   const timeline = document.querySelector('.timeline');
@@ -74,16 +74,19 @@ scrollDiv(){
       } else if (4050 < timeline.scrollLeft && timeline.scrollLeft < 8000) {
         document.querySelector('.timeline-bg').style.filter = ''
         document.querySelector(".timeline-bg").style.backgroundImage = "url(/Images/Cole_Thomas_The_Course_of_Empire_Desolation_1836.jpg)";
+      } else {
+        document.querySelector('.timeline').scrollLeft=0;
       }
-      else {document.querySelector('.timeline').scrollLeft=0;}
     }
   }
 }
 
-  timeHop(position) {
-    if (!document.querySelector('.timeline')) return null;
-    document.querySelector('.timeline').scrollLeft=position;
-  }
+
+    timeHop(position) {
+      if (!document.querySelector('.timeline')) return null;
+      document.querySelector('.timeline').scrollLeft=position;
+    }
+
 
 
   render() {
@@ -108,22 +111,51 @@ scrollDiv(){
       return  (
         <div className='timeline-content'>
           <div className='timeline-bg'></div>
-          <Button bsClass=".move-button1" onClick={() => this.timeHop(1000)}>Foundation of Rome</Button>
-          <Button bsClass=".move-button1" onClick={() => this.timeHop(2000)}>The Laws of the Twelve Tables 449 BCE</Button>
-          <Button bsClass=".move-button1" onClick={() => this.timeHop(3000)}>Hannibal invades Italy 218 BCE</Button>
-          <Button bsClass=".move-button1" onClick={() => this.timeHop(4000)}>Julius Caesar was assassinated 44 BCE</Button>
-          <Button bsClass=".move-button1" onClick={() => this.timeHop(5000)}>Roman Empire began 27 BCE</Button>
-          <Button bsClass=".move-button1" onClick={() => this.timeHop(5000)}>Augustus ended pontifex maximus 12 BCE</Button>
-          <Button bsClass=".move-button1" onClick={() => this.timeHop(5000)}>306	Constantine becomes Emperor in 306 AD</Button>
-          <Button bsClass=".move-button1" onClick={() => this.timeHop(5000)}>380	Conversion to Christianity</Button>
-          <Button bsClass=".move-button1" onClick={() => this.timeHop(5000)}>395	Rome splits</Button>
-          <Button bsClass=".move-button1" onClick={() => this.timeHop(5000)}>410	The Visigoths sack Rome</Button>
-          <Button bsClass=".move-button1" onClick={() => this.timeHop(5000)}>476	End of the Western Roman Empire and the fall of Ancient Rome</Button>
-          <Button bsClass=".move-button1" onClick={() => this.timeHop(50000)}>1453	The Byzantine Empire ends</Button>
+          <tr className="jump-buttons">
+            <th>
+              <Button onClick={() => this.timeHop(1000)}>Foundation of Rome</Button>
+            </th>
+            <th>
+              <Button onClick={() => this.timeHop(2000)}>The Laws of the Twelve Tables 449 BCE</Button>
+            </th>
+            <th>
+              <Button onClick={() => this.timeHop(3000)}>Hannibal invades Italy 218 BCE</Button>
+            </th>
+            <th>
+              <Button onClick={() => this.timeHop(4000)}>Julius Caesar was assassinated 44 BCE</Button>
+            </th>
+          </tr>
+          <tr>
+            <th>
+              <Button onClick={() => this.timeHop(5000)}>Roman Empire began 27 BCE</Button>
+            </th>
+            <th>
+              <Button onClick={() => this.timeHop(5000)}>Augustus ended pontifex maximus 12 BCE</Button>
+            </th>
+            <th>
+              <Button onClick={() => this.timeHop(5000)}>306  Constantine becomes Emperor in 306 AD</Button>
+            </th>
+            <th>
+              <Button onClick={() => this.timeHop(5000)}>380  Conversion to Christianity</Button>
+            </th>
+          </tr>
+          <tr>
+            <th>
+              <Button onClick={() => this.timeHop(5000)}>395  Rome splits</Button>
+            </th>
+            <th>
+              <Button onClick={() => this.timeHop(5000)}>410  The Visigoths sack Rome</Button>
+            </th>
+            <th>
+              <Button onClick={() => this.timeHop(5000)}>476  End of the Western Roman Empire and the fall of Ancient Rome</Button>
+            </th>
+            <th>
+              <Button onClick={() => this.timeHop(50000)}>1453  The Byzantine Empire ends</Button>
+            </th>
+          </tr>
           <Timeline events={events}/>
           <h2>Favourite Events</h2>
           <Favourites favs={this.state.favourites} removeFavourite={this.removeFavourite} />
-
         </div>
       );
     }

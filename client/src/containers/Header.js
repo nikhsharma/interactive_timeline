@@ -7,7 +7,7 @@ export default class Header extends Component {
   render() {
     return(
       <Jumbotron >
-          <h2>Some heading text</h2>
+          <h2>Interactive Timeline</h2>
     </Jumbotron>
 
     )
