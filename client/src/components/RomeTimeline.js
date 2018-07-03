@@ -62,18 +62,18 @@ scrollDiv(){
       timeline.scrollLeft=timeline.scrollLeft+this.state.scrollSpeed
       if (timeline.scrollLeft < 1950) {
         document.querySelector('.timeline-bg').style.filter = ''
-        document.querySelector('.timeline-bg').style.backgroundImage = 'url(https://upload.wikimedia.org/wikipedia/commons/8/8c/Cole_Thomas_The_Course_of_Empire_The_Arcadian_or_Pastoral_State_1836.jpg)'
+        document.querySelector('.timeline-bg').style.backgroundImage = 'url(/Images/Cole_Thomas_The_Course_of_Empire_The_Arcadian_or_Pastoral_State_1836.jpg)'
       } else if (1950 < timeline.scrollLeft && timeline.scrollLeft < 2050) {
         document.querySelector('.timeline-bg').style.filter = 'blur(10px)'
       } else if (2050 < timeline.scrollLeft && timeline.scrollLeft < 3950) {
         document.querySelector('.timeline-bg').style.filter = ''
-        document.querySelector('.timeline-bg').style.backgroundImage = 'url(https://upload.wikimedia.org/wikipedia/commons/1/1a/Cole_Thomas_The_Consummation_The_Course_of_the_Empire_1836.jpg)'
+        document.querySelector(".timeline-bg").style.backgroundImage = "url(/Images/Cole_Thomas_The_Consummation_The_Course_of_the_Empire_1836.jpg)";
       } else if (3950 < timeline.scrollLeft && timeline.scrollLeft < 4050) {
         document.querySelector('.timeline-bg').style.filter = 'blur(10px)'
-        document.querySelector('.timeline-bg').style.backgroundImage = 'url(https://upload.wikimedia.org/wikipedia/commons/6/64/Cole_Thomas_The_Course_of_Empire_Destruction_1836.jpg)'
+        document.querySelector(".timeline-bg").style.backgroundImage = "url(/Images/Cole_Thomas_The_Course_of_Empire_Destruction_1836.jpg)";
       } else if (4050 < timeline.scrollLeft && timeline.scrollLeft < 8000) {
         document.querySelector('.timeline-bg').style.filter = ''
-        document.querySelector('.timeline-bg').style.backgroundImage = 'url(https://upload.wikimedia.org/wikipedia/commons/7/77/Cole_Thomas_The_Course_of_Empire_Desolation_1836.jpg)'
+        document.querySelector(".timeline-bg").style.backgroundImage = "url(/Images/Cole_Thomas_The_Course_of_Empire_Desolation_1836.jpg)";
       }
       else {document.querySelector('.timeline').scrollLeft=0;}
     }
