@@ -12,51 +12,6 @@ export default class Categories extends Component {
                   <h2>Rome</h2>
                 </div>
               </Link>
-              <Link to="/">
-                <div className="cat-content">
-                  <h2>Some heading text</h2>
-                </div>
-              </Link>
-              <Link to="/">
-                <div className="cat-content">
-                  <h2>Some heading text</h2>
-                </div>
-              </Link>
-              <Link to="/">
-                <div className="cat-content">
-                  <h2>Some heading text</h2>
-                </div>
-              </Link>
-              <Link to="/">
-                <div className="cat-content">
-                  <h2>Some heading text</h2>
-                </div>
-              </Link>
-              <Link to="/">
-                <div className="cat-content">
-                  <h2>Some heading text</h2>
-                </div>
-              </Link>
-              <Link to="/">
-                <div className="cat-content">
-                  <h2>Some heading text</h2>
-                </div>
-              </Link>
-              <Link to="/">
-                <div className="cat-content">
-                  <h2>Some heading text</h2>
-                </div>
-              </Link>
-              <Link to="/">
-                <div className="cat-content">
-                  <h2>Some heading text</h2>
-                </div>
-              </Link>
-              <Link to="/">
-                <div className="cat-content">
-                  <h2>Some heading text</h2>
-                </div>
-              </Link>
             </div>
           </div>;
     }
