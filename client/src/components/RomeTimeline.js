@@ -76,13 +76,18 @@ export default class RomeTimeline extends Component {
           document.querySelector('.timeline-bg').style.backgroundImage = 'url(https://upload.wikimedia.org/wikipedia/commons/7/77/Cole_Thomas_The_Course_of_Empire_Desolation_1836.jpg)'
         }
 
-    } else {document.querySelector('.timeline').scrollLeft=0;}
+      } else {
+        document.querySelector('.timeline').scrollLeft=0;
+      }
+    }
   }
 
-  timeHop(position) {
-    if (!document.querySelector('.timeline')) return null;
-    document.querySelector('.timeline').scrollLeft=position;
-  }
+
+    timeHop(position) {
+      if (!document.querySelector('.timeline')) return null;
+      document.querySelector('.timeline').scrollLeft=position;
+    }
+
 
 
   render() {
