@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import Header from './Header';
-import Categories from './Categories';
+// import Header from './Header';
+// import Categories from './Categories';
 import '../style/Home.css'
 
 export default class Home extends Component {
@@ -72,8 +72,6 @@ export default class Home extends Component {
   render() {
     return(
       <div className='home-content'>
-        <Header />
-        <Categories />
       </div>
     )
   }

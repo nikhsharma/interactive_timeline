@@ -3,3 +3,16 @@
   border-bottom: 3px solid rgba(0,0,0,0.75);
   background-color: SEASHELL;
 }
+
+#nav {
+  height: 60px;
+  background-color: transparent;
+  position: fixed;
+  width: 100vw
+}
+
+#nav img {
+  height: 60px;
+  float: right;
+  margin: 30px;
+}
