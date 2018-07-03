@@ -115,7 +115,6 @@ scrollDiv(){
 
           <div className='timeline-bg'></div>
           <Timeline events={events}/>
-          <h2 className='faveh2'>Favourite Events</h2>
           <Favourites favs={this.state.favourites} removeFavourite={this.removeFavourite} />
           {/* <Footer /> */}
         </div>

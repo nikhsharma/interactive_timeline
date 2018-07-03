@@ -1,14 +1,15 @@
 .favourites {
-  background-color: #fff;
+  background-image: url('/timeline_background003.jpg');
   overflow-x: scroll;
-  height: 30vh;
+  height: 50vh;
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 5vh;
 }
 
 .saved {
   border: 1px solid black;
+  background-color: #fff;
+
   border-radius: 10px;
   width: 20vw;
   margin: 2vw;
@@ -24,5 +25,4 @@
 }
 
 .favouritessection {
-  background-color: #fff;
 }

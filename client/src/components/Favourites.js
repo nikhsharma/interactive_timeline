@@ -15,16 +15,20 @@ export default class Favourites extends Component {
           <p>{fav.data_date}</p>
           <p>{fav.content}</p>
         </div>
-    ))}
+      ))}
 
 
-    return (
-      <div className='favouritessection'>
-      <div className='favourites'>
-        {favs}
-      </div>
-    </div>
+      return (
+        <div className='favouritessection'>
+          <div className='faveh2'>
+            <h2>Favourite Events</h2>
+            <div className='favourites'>
+              {favs}
+            </div>
+          </div>
 
-    )
+        </div>
+
+      )
+    }
   }
-}
