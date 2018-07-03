@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import {Button, Collapse, Well} from 'react-bootstrap';
+import {Collapse} from 'react-bootstrap';
 import '../style/Nav.css';
 
 

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import './FavouriteButton.css';
-import Favourites from './Favourites';
 
 export default class FavouriteButton extends Component {
 
