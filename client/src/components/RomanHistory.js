@@ -17,9 +17,9 @@ export default class RomanHistory extends Component {
 
   componentDidUpdate() {
     if (this.state.open === true) {
-      document.querySelector(".hline").style.top = "545px"
+      document.querySelector(".hline").style.top = "524px"
     } else {
-      document.querySelector(".hline").style.top = "235px"
+      document.querySelector(".hline").style.top = "214px"
     }
   }
 

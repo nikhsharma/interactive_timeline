@@ -9,6 +9,7 @@ export default class Favourites extends Component {
     let favs;
     if (this.props.favs) {
       favs = this.props.favs.map( fav => (
+
         <div className='saved'>
           <RemoveFavouriteButton removeFavourite={this.props.removeFavourite} currentEvent={fav} />
           <p>{fav.data_date}</p>
@@ -18,9 +19,12 @@ export default class Favourites extends Component {
 
 
     return (
+      <div className='favouritessection'>
       <div className='favourites'>
         {favs}
       </div>
+    </div>
+
     )
   }
 }

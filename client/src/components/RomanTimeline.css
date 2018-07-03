@@ -1,5 +1,5 @@
 .timeline {
-  padding-top: 40px;
+  padding-top: 20px;
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
@@ -10,7 +10,7 @@
 
 .timeline-bg {
   width: 100%;
-  height: 60vh;
+  height: 100%;
   position: absolute;
   z-index: -1;
   background-size: cover;
@@ -25,6 +25,7 @@ body {
 
 .timeline-content {
   width: 100vw;
+  height: 1000px;
 }
 
 .timeline-content h2 {
@@ -32,7 +33,7 @@ body {
 }
 
 .hline {
-  width:105vw;
+  width:100vw;
   height:5px;
   background: rgba(255, 255, 255, 0.2);
   position: absolute;
@@ -119,17 +120,40 @@ body {
 }
 
 .buttons {
-  width: 100vw;
+  width: 58vw;
+  margin: 0;
+  padding: 0;
+  margin-right: -10px;
   display: flex;
   flex-wrap: wrap;
+  z-index: 100;
 }
 
 .timebutton {
-  width: 33.33vw;
-  height: 50px;
+  width: 19vw;
+  /* height: 50px; */
 }
 
 .historical_outline {
   max-height: 250px;
   overflow-x: scroll;
+}
+
+.map-btns {
+  margin-top: -70px;
+  display: flex;
+  justify-content: center;
+}
+
+.map-of-rome {
+  width: 40vw;
+}
+
+.faveh2 {
+  background-color: #fff;
+  border-top: 2px solid black;
+}
+
+.topsection {
+  height: 100vh
 }
