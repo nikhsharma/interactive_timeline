@@ -54,9 +54,7 @@ export default class RomanMap extends Component {
         } else if( 104650 < timeline.scrollLeft ) {
           img.src= "/Images/RE1181x.gif";
         }
-      }  else {
-        img.src= "/Images/RE-338b.gif"
-      }
+      } 
     }
 
 

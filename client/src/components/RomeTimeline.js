@@ -33,7 +33,7 @@ export default class RomeTimeline extends Component {
 
   handleFavClick(currentEvent) {
     const newFavs = this.state.favourites;
-    newFavs.push(currentEvent);
+    newFavs.splice(0, 0, currentEvent);
     this.setState({favourites: newFavs})
     this.forceUpdate();
     localStorage.setItem('saved', JSON.stringify(this.state.favourites));
@@ -111,11 +111,13 @@ scrollDiv(){
         </div>
       ))
 
+      let result = events.reverse();
+
       return  (
         <div className='timeline-content'>
 
           <div className='timeline-bg'></div>
-          <Timeline events={events}/>
+          <Timeline events={result}/>
           <Favourites favs={this.state.favourites} removeFavourite={this.removeFavourite} />
           {/* <Footer /> */}
         </div>
