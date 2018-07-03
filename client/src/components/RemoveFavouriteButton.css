@@ -1,0 +1,12 @@
+.rmbutton {
+  background-color: transparent;
+  border: none;
+  float: right;
+  color: red;
+  transition: 0.1s;
+}
+
+.rmbutton:hover {
+  transform: scale(1.6);
+  transition: 0.1s;
+}

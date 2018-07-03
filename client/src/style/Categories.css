@@ -1,0 +1,35 @@
+.cat-section {
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+    width: 100vw;
+    height: 75vh;
+    overflow: scroll;
+    background-color: SEASHELL;
+}
+
+.cat-content-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 5vw;
+    width: 90vw;
+    height: 75vh;
+}
+
+.cat-content {
+    height: 30vh;
+    width: 26vw;
+    background-image: url('https://brightcove04pmdo-a.akamaihd.net/5104226627001/5104226627001_5232386545001_5215063851001-vs.jpg?pubId=5104226627001&videoId=5215063851001');
+    background-size: cover;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 25px;
+    border: 3px solid black;
+    text-decoration: none;
+}
+
+.cat-content h2 {
+    text-decoration: none;
+}

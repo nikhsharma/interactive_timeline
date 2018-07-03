@@ -1,0 +1,111 @@
+.timeline {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  width: 100vw;
+  display: flex;
+  jusiify-content: space-around;
+}
+
+.timeline-bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  transition: 1s;
+}
+
+body {
+  scroll-behavior: 'smooth';
+}
+
+.timeline-content {
+  /* height: 85vh; */
+  width: 100vw;
+}
+
+.timeline-content h2 {
+  text-align: center;
+}
+
+.hline {
+  width:105vw;
+  height:5px;
+  background: rgba(255, 255, 255, 0.2);
+  position: absolute;
+  top: 320px;
+  z-index: 0;
+}
+
+/* ---- Timeline elements ---- */
+.event {
+  font: bold 14px arial;
+  /* padding: 30px; */
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+}
+
+.event:nth-child(even) {
+  flex-direction:column-reverse;
+  position: relative;
+  bottom: 50px;
+}
+
+.event .save-button:active {
+  position: relative;
+  top: 2px;
+  transition: 0.2s;
+}
+
+.date {
+  width: 100px;
+  line-height: 100px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 1.2rem;
+  border: 2px solid #666;
+  background-color: white;
+}
+
+/* ---- Hover effects ---- */
+.event:hover {
+  cursor: pointer;
+  color: red;
+}
+
+.move-button {
+  position: fixed;
+  z-index: 2;
+}
+
+.content {
+  padding: 20px 30px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 6px;
+  white-space: normal;
+  width: 400px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.point {
+  height: 5px;
+  width: 15px;
+  /* border-radius: 50%; */
+  background-color: rgba(255,255,255, 0.5);
+  margin: 10px;
+  transition: 0.2s;
+}
+
+.event:hover .point {
+  background-color: #FFF;
+  height: 5px;
+  transition: 0.2s;
+}

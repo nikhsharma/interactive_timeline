@@ -1,0 +1,11 @@
+.historical_outline {
+  background-color: SEASHELL;
+  width: 100%;
+  padding: 25px;
+  text-align: justify;
+  flex-wrap: wrap;
+}
+
+p {
+  align-content: center;
+}

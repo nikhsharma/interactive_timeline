@@ -1,5 +1,20 @@
+@import url(https://fonts.googleapis.com/css?family=Encode+Sans+Condensed|Poiret+One|Open+Sans);
+
 body {
+  background-color: white;
   margin: 0;
   padding: 0;
+  height: 100vh;
   font-family: sans-serif;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+h2, p, h1, a {
+  font-family: 'Encode Sans Condensed', sans-serif;
+  text-decoration: none;
+  margin:0;
+  padding:0;
 }
