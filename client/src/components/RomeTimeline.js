@@ -74,9 +74,9 @@ scrollDiv(){
       } else if (4050 < timeline.scrollLeft && timeline.scrollLeft < 8000) {
         document.querySelector('.timeline-bg').style.filter = ''
         document.querySelector(".timeline-bg").style.backgroundImage = "url(/Images/Cole_Thomas_The_Course_of_Empire_Desolation_1836.jpg)";
+      }
       } else {
         document.querySelector('.timeline').scrollLeft=0;
-      }
     }
   }
 }
