@@ -68,9 +68,15 @@ body {
   line-height: 100px;
   border-radius: 50%;
   text-align: center;
-  font-size: 1.2rem;
-  border: 2px solid #666;
-  background-color: white;
+  font-size: 5rem;
+  color: white;
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;
+  /* border: 2px solid #666; */
+  /* background-color: white; */
 }
 
 /* ---- Hover effects ---- */
@@ -86,13 +92,15 @@ body {
 
 .content {
   padding: 20px 30px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.6);
   border: 1px solid black;
   border-radius: 6px;
   white-space: normal;
   width: 400px;
-  display: flex;
+  /* display: flex; */
+  text-align: center;
   justify-content: space-around;
+
 }
 
 .point {
