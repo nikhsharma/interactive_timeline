@@ -1,7 +1,9 @@
-.home-content {
+.home-bg {
   background-image: url('/landing_page_face_map_text.jpg');
   background-position: center center;
   background-repeat: no-repeat;
   background-color: black;
   height: 100vh;
+  z-index: 1;
+  transition: 0.5s;
 }

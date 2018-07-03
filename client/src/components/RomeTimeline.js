@@ -3,6 +3,7 @@ import {Button} from 'react-bootstrap';
 import FavouriteButton from './FavouriteButton';
 import Timeline from './Timeline';
 import Favourites from './Favourites';
+import Footer from '../containers/Footer';
 import './RomanTimeline.css'
 
 export default class RomeTimeline extends Component {
@@ -24,7 +25,7 @@ export default class RomeTimeline extends Component {
     fetch(url).then(res => res.json()).then(data => {
       this.setState({ data: data})
     })
-    setInterval(this.scrollDiv,30)
+    setInterval(this.scrollDiv,40)
     if (!localStorage.getItem('saved')) return null;
     this.setState({favourites: JSON.parse(localStorage.getItem('saved'))})
   }
@@ -156,6 +157,7 @@ scrollDiv(){
           <Timeline events={events}/>
           <h2>Favourite Events</h2>
           <Favourites favs={this.state.favourites} removeFavourite={this.removeFavourite} />
+          <Footer />
         </div>
       );
     }
