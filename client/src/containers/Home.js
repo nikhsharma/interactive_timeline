@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
-import Header from './Header';
-import Categories from './Categories';
+// import Header from './Header';
+// import Categories from './Categories';
 import '../style/Home.css'
+import NavBar from './Nav';
+import '../style/Nav.css';
 
 export default class Home extends Component {
   constructor(props) {
@@ -12,8 +14,9 @@ export default class Home extends Component {
     this.createobjectsfordb = this.createobjectsfordb.bind(this);
   }
   componentDidMount() {
+
     const url =
-      "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=cirrusdoc%7Crevisions&list=&export=1&titles=Timeline_of_Roman_history";
+    "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=cirrusdoc%7Crevisions&list=&export=1&titles=Timeline_of_Roman_history";
     const datatoignore = ["Year", "Date", "Event", "BC", "AC"];
 
     // Fetches data and goes deep into the response json before saving to the state as we only want the nessesary data stored.
@@ -72,8 +75,8 @@ export default class Home extends Component {
   render() {
     return(
       <div className='home-content'>
-        <Header />
-        <Categories />
+        <NavBar />
+        <div className='home-bg'></div>
       </div>
     )
   }

@@ -3,6 +3,7 @@ import {Button} from 'react-bootstrap';
 import FavouriteButton from './FavouriteButton';
 import Timeline from './Timeline';
 import Favourites from './Favourites';
+import Footer from '../containers/Footer';
 import './RomanTimeline.css'
 
 export default class RomeTimeline extends Component {
@@ -24,7 +25,7 @@ export default class RomeTimeline extends Component {
     fetch(url).then(res => res.json()).then(data => {
       this.setState({ data: data})
     })
-    setInterval(this.scrollDiv,30)
+    setInterval(this.scrollDiv,40)
     if (!localStorage.getItem('saved')) return null;
     this.setState({favourites: JSON.parse(localStorage.getItem('saved'))})
   }
@@ -111,51 +112,10 @@ scrollDiv(){
       return  (
         <div className='timeline-content'>
           <div className='timeline-bg'></div>
-          <tr className="jump-buttons">
-            <th>
-              <Button onClick={() => this.timeHop(1000)}>Foundation of Rome</Button>
-            </th>
-            <th>
-              <Button onClick={() => this.timeHop(2000)}>The Laws of the Twelve Tables 449 BCE</Button>
-            </th>
-            <th>
-              <Button onClick={() => this.timeHop(3000)}>Hannibal invades Italy 218 BCE</Button>
-            </th>
-            <th>
-              <Button onClick={() => this.timeHop(4000)}>Julius Caesar was assassinated 44 BCE</Button>
-            </th>
-          </tr>
-          <tr>
-            <th>
-              <Button onClick={() => this.timeHop(5000)}>Roman Empire began 27 BCE</Button>
-            </th>
-            <th>
-              <Button onClick={() => this.timeHop(5000)}>Augustus ended pontifex maximus 12 BCE</Button>
-            </th>
-            <th>
-              <Button onClick={() => this.timeHop(5000)}>306  Constantine becomes Emperor in 306 AD</Button>
-            </th>
-            <th>
-              <Button onClick={() => this.timeHop(5000)}>380  Conversion to Christianity</Button>
-            </th>
-          </tr>
-          <tr>
-            <th>
-              <Button onClick={() => this.timeHop(5000)}>395  Rome splits</Button>
-            </th>
-            <th>
-              <Button onClick={() => this.timeHop(5000)}>410  The Visigoths sack Rome</Button>
-            </th>
-            <th>
-              <Button onClick={() => this.timeHop(5000)}>476  End of the Western Roman Empire and the fall of Ancient Rome</Button>
-            </th>
-            <th>
-              <Button onClick={() => this.timeHop(50000)}>1453  The Byzantine Empire ends</Button>
-            </th>
-          </tr>
           <Timeline events={events}/>
           <h2>Favourite Events</h2>
           <Favourites favs={this.state.favourites} removeFavourite={this.removeFavourite} />
+          <Footer />
         </div>
       );
     }
