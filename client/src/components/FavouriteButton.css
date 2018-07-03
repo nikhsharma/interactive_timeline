@@ -14,7 +14,6 @@
 
 
 .save-button button:hover {
-  border: 1px solid black;
   border-radius: 10px;
   transition: 0.2s;
 }

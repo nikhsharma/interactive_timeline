@@ -5,6 +5,7 @@ import Timeline from './Timeline';
 import Favourites from './Favourites';
 import Footer from '../containers/Footer';
 import './RomanTimeline.css'
+import RomanHistory from './RomanHistory';
 
 export default class RomeTimeline extends Component {
   constructor(props) {
@@ -111,6 +112,7 @@ scrollDiv(){
 
       return  (
         <div className='timeline-content'>
+          <RomanHistory />
           <div className='timeline-bg'></div>
           <Timeline events={events}/>
           <h2>Favourite Events</h2>

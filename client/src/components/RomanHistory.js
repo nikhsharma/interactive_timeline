@@ -6,17 +6,27 @@ import "./RomanHistory.css";
 export default class RomanHistory extends Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      open: false
+    }
   }
 
   componentDidMount() {
     console.log("Roman History mounted");
   }
 
+  componentDidUpdate() {
+    if (this.state.open === true) {
+      document.querySelector(".hline").style.top = "545px"
+    } else {
+      document.querySelector(".hline").style.top = "235px"
+    }
+  }
+
   render() {
-    return <div>
+    return <div id='information'>
       <Button onClick={() => this.setState({ open: !this.state.open })}>
-        click
+        Info
         </Button>
       <Collapse in={this.state.open}>
         <div>
