@@ -19,8 +19,6 @@ export default class RomanMap extends Component {
   mapTimeLapse() {
     const timeline = document.querySelector(".timeline");
     if (timeline) {
-      if(timeline.scrollLeft<(timeline.scrollWidth-timeline.offsetWidth)){
-        timeline.scrollLeft = timeline.scrollLeft + this.state.scrollSpeed
         const img = document.querySelector(".map-of-rome")
         if (timeline.scrollLeft < 1000) {
           img.src = "/Images/RE-338b.gif";
@@ -59,7 +57,7 @@ export default class RomanMap extends Component {
         document.querySelector(".map-of-rome").src= "/Images/RE-338b.gif"
       }
     }
-  }
+
 
   render() {
     return (
