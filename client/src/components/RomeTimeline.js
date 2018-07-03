@@ -63,6 +63,7 @@ scrollDiv(){
   if (timeline) {
     if(timeline.scrollLeft<(timeline.scrollWidth-timeline.offsetWidth)){
       timeline.scrollLeft=timeline.scrollLeft+this.state.scrollSpeed
+      console.log(timeline.scrollLeft);
       if (timeline.scrollLeft < 1950) {
         document.querySelector('.timeline-bg').style.filter = ''
         document.querySelector('.timeline-bg').style.backgroundImage = 'url(/Images/Cole_Thomas_The_Course_of_Empire_The_Arcadian_or_Pastoral_State_1836.jpg)'
