@@ -111,13 +111,11 @@ scrollDiv(){
         </div>
       ))
 
-      let result = events.reverse();
-
       return  (
         <div className='timeline-content'>
 
           <div className='timeline-bg'></div>
-          <Timeline events={result}/>
+          <Timeline events={events}/>
           <Favourites favs={this.state.favourites} removeFavourite={this.removeFavourite} />
           {/* <Footer /> */}
         </div>

@@ -8,7 +8,7 @@
 
 .saved {
   border: 1px solid black;
-  background-color: #fff;
+  background-color: rgba(255,255,255, 0.9);
   border-radius: 10px;
   min-width: 400px;
   margin: 2vw;
@@ -18,8 +18,7 @@
 }
 
 .saved:hover {
-  background-color: blue;
-  color: #FFF;
+  background-color: white;
   transition: 0.3s;
 }
 
