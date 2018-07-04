@@ -67,7 +67,7 @@ export default class RomeTimeline extends Component {
 scrollDiv(){
   const timeline = document.querySelector('.timeline');
   if (timeline) {
-    const background = document.querySelector('.timeline-bg');
+    const background = document.querySelector('.timeline-content');
     if(timeline.scrollLeft<(timeline.scrollWidth-timeline.offsetWidth)){
       timeline.scrollLeft=timeline.scrollLeft+this.state.scrollSpeed
       if (timeline.scrollLeft < 20000) {
@@ -118,7 +118,6 @@ scrollDiv(){
           <div className='timeline-bg'></div>
           <Timeline events={events}/>
           <Favourites favs={this.state.favourites} removeFavourite={this.removeFavourite} savedNote={this.savedNote}/>
-          {/* <Footer /> */}
         </div>
       );
     }
