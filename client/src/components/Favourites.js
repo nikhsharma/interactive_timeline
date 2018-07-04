@@ -32,7 +32,7 @@ export default class Favourites extends Component {
           <p>{fav.data_date}</p>
           <p>{fav.content}</p>
           <div>
-            <input id="submitNote" type="text"/>
+            <input id="submitNote" type="text" pattern="[^()/><\][\\\x22,;|]+"/>
             <input id="submitBtn" type="submit" value="Save" onClick={() => this.props.savedNote(fav, document.querySelector('#submitNote').value)}/>
           </div>
           <p>Notes:</p>
