@@ -4,6 +4,16 @@ import RemoveFavouriteButton from '../components/RemoveFavouriteButton';
 
 export default class Favourites extends Component {
 
+  handEnterButton() {
+    var input = document.getElementById("submitNote");
+    input.addEventListener("keyup", function(event) {
+      event.preventDefault();
+      if (event.keyCode === 13) {
+        document.getElementById("submitBtn").click();
+      }
+    });
+  }
+
 
   render() {
     let favs;
@@ -14,6 +24,12 @@ export default class Favourites extends Component {
           <RemoveFavouriteButton removeFavourite={this.props.removeFavourite} currentEvent={fav} />
           <p>{fav.data_date}</p>
           <p>{fav.content}</p>
+          <div>
+            <form action="">
+              <input id="submitNote" type="text"/>
+              <input id="submitBtn" type="submit" value="Submit" onClick={() => console.log("Testing the click")}/>
+            </form>
+          </div>
         </div>
       ))}
 
