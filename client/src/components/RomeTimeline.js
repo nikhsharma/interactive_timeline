@@ -63,19 +63,13 @@ scrollDiv(){
     const background = document.querySelector('.timeline-bg');
     if(timeline.scrollLeft<(timeline.scrollWidth-timeline.offsetWidth)){
       timeline.scrollLeft=timeline.scrollLeft+this.state.scrollSpeed
-      if (timeline.scrollLeft < 1950) {
-        background.style.filter = ''
+      if (timeline.scrollLeft < 20000) {
         background.style.backgroundImage = 'url(/Images/Cole_Thomas_The_Course_of_Empire_The_Arcadian_or_Pastoral_State_1836.jpg)'
-      } else if (1950 < timeline.scrollLeft && timeline.scrollLeft < 2050) {
-        background.style.filter = 'blur(10px)'
-      } else if (2050 < timeline.scrollLeft && timeline.scrollLeft < 3950) {
-        background.style.filter = ''
+      } else if (20000 < timeline.scrollLeft && timeline.scrollLeft < 30000) {
         background.style.backgroundImage = "url(/Images/Cole_Thomas_The_Consummation_The_Course_of_the_Empire_1836.jpg)";
-      } else if (3950 < timeline.scrollLeft && timeline.scrollLeft < 4050) {
-        background.style.filter = 'blur(10px)'
+      } else if (50000 < timeline.scrollLeft && timeline.scrollLeft < 80000) {
         background.style.backgroundImage = "url(/Images/Cole_Thomas_The_Course_of_Empire_Destruction_1836.jpg)";
-      } else if (4050 < timeline.scrollLeft && timeline.scrollLeft < 8000) {
-        background.style.filter = ''
+      } else if (80000 < timeline.scrollLeft) {
         background.style.backgroundImage = "url(/Images/Cole_Thomas_The_Course_of_Empire_Desolation_1836.jpg)";
       }
       } else {
