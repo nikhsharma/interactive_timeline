@@ -32,8 +32,8 @@ export default class Favourites extends Component {
           <p>{fav.data_date}</p>
           <p>{fav.content}</p>
           <div>
-              <input id="submitNote" type="text"/>
-              <button id="submitBtn" type="submit" value="Save" onClick={() => this.props.savedNote(fav, document.querySelector('#submitNote').value)}/>
+            <input id="submitNote" type="text"/>
+            <input id="submitBtn" type="submit" value="Save" onClick={() => this.props.savedNote(fav, document.querySelector('#submitNote').value)}/>
           </div>
           <p>Notes:</p>
           <p>{fav.note}</p>
