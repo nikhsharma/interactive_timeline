@@ -3,3 +3,47 @@
   border-bottom: 3px solid rgba(0,0,0,0.75);
   background-color: SEASHELL;
 }
+
+#nav {
+  height: 60px;
+  background-color: transparent;
+  position: fixed;
+  width: 100vw;
+  z-index: 100;
+}
+
+#nav img {
+  height: 60px;
+  float: right;
+  margin: 30px;
+}
+
+.menulink {
+  color: white;
+  background-color: black;
+  border-radius: 10px;
+  padding: 10px;
+  transition: 0.2s;
+  font-size: 4rem;
+}
+
+.menulink:hover {
+  color: black;
+  background-color: #fff;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.collapse-content {
+  text-align: center;
+  margin-top: 40vh;
+  z-index: 2;
+}
+
+#menu:hover {
+  cursor: pointer;
+}
+
+#menu {
+  transition: 0.3s;
+}

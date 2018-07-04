@@ -1,16 +1,16 @@
 .favourites {
-  background-color: #fff;
-  overflow-x: scroll;
-  height: 30vh;
+  background-image: url('/timeline_background003.jpg');
+  overflow-y: scroll;
+  height: 50vh;
+  width: 100vw;
   display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 5vh;
 }
 
 .saved {
   border: 1px solid black;
+  background-color: rgba(255,255,255, 0.9);
   border-radius: 10px;
-  width: 20vw;
+  min-width: 400px;
   margin: 2vw;
   padding: 10px;
   transition: 0.3s;
@@ -18,7 +18,6 @@
 }
 
 .saved:hover {
-  background-color: blue;
-  color: #FFF;
+  background-color: white;
   transition: 0.3s;
 }

@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
-import {Button} from 'react-bootstrap';
 import FavouriteButton from './FavouriteButton';
 import Timeline from './Timeline';
 import Favourites from './Favourites';
 import './RomanTimeline.css'
-import RomanMap from "./RomanMap";
 
 export default class RomeTimeline extends Component {
   constructor(props) {
@@ -18,6 +16,7 @@ export default class RomeTimeline extends Component {
     this.timeHop = this.timeHop.bind(this)
     this.handleFavClick = this.handleFavClick.bind(this);
     this.removeFavourite = this.removeFavourite.bind(this);
+    this.savedNote = this.savedNote.bind(this);
   }
 
   componentDidMount() {
@@ -25,16 +24,15 @@ export default class RomeTimeline extends Component {
     fetch(url).then(res => res.json()).then(data => {
       this.setState({ data: data})
     })
-    setInterval(this.scrollDiv,30)
+    setInterval(this.scrollDiv,40)
     if (!localStorage.getItem('saved')) return null;
     this.setState({favourites: JSON.parse(localStorage.getItem('saved'))})
   }
 
   handleFavClick(currentEvent) {
     const newFavs = this.state.favourites;
-    newFavs.push(currentEvent);
+    newFavs.splice(0, 0, currentEvent);
     this.setState({favourites: newFavs})
-    this.forceUpdate();
     localStorage.setItem('saved', JSON.stringify(this.state.favourites));
   }
 
@@ -47,34 +45,39 @@ export default class RomeTimeline extends Component {
       this.setState({favourites: newFavs})
       localStorage.setItem('saved', JSON.stringify(newFavs))
     })
-    // console.log('asfas');
-    // for (let i = 0; i < this.state.favourites.length; i++) {
-    //   if (this.state.favourites[i] === fave) {
-    //     this.state.favourites.slice(i, 1);
-    //
-    //   }
-    // }
+  }
+
+  savedNote(currentEvent, note) {
+    if(!this.state.favourites) return null;
+
+    const newEvent = {
+      _id: currentEvent["_id"],
+      data_date: currentEvent.data_date,
+      content: currentEvent.content,
+      note: note
+    }
+
+    const newFavourites = this.state.favourites.map(favourite =>{
+      return favourite["_id"] === newEvent["_id"] ? newEvent : favourite
+    });
+      this.setState({favourites: newFavourites})
+      localStorage.setItem("saved", JSON.stringify(newFavourites));
   }
 
 scrollDiv(){
   const timeline = document.querySelector('.timeline');
   if (timeline) {
+    const background = document.querySelector('.timeline-content');
     if(timeline.scrollLeft<(timeline.scrollWidth-timeline.offsetWidth)){
       timeline.scrollLeft=timeline.scrollLeft+this.state.scrollSpeed
-      if (timeline.scrollLeft < 1950) {
-        document.querySelector('.timeline-bg').style.filter = ''
-        document.querySelector('.timeline-bg').style.backgroundImage = 'url(/Images/Cole_Thomas_The_Course_of_Empire_The_Arcadian_or_Pastoral_State_1836.jpg)'
-      } else if (1950 < timeline.scrollLeft && timeline.scrollLeft < 2050) {
-        document.querySelector('.timeline-bg').style.filter = 'blur(10px)'
-      } else if (2050 < timeline.scrollLeft && timeline.scrollLeft < 3950) {
-        document.querySelector('.timeline-bg').style.filter = ''
-        document.querySelector(".timeline-bg").style.backgroundImage = "url(/Images/Cole_Thomas_The_Consummation_The_Course_of_the_Empire_1836.jpg)";
-      } else if (3950 < timeline.scrollLeft && timeline.scrollLeft < 4050) {
-        document.querySelector('.timeline-bg').style.filter = 'blur(10px)'
-        document.querySelector(".timeline-bg").style.backgroundImage = "url(/Images/Cole_Thomas_The_Course_of_Empire_Destruction_1836.jpg)";
-      } else if (4050 < timeline.scrollLeft && timeline.scrollLeft < 8000) {
-        document.querySelector('.timeline-bg').style.filter = ''
-        document.querySelector(".timeline-bg").style.backgroundImage = "url(/Images/Cole_Thomas_The_Course_of_Empire_Desolation_1836.jpg)";
+      if (timeline.scrollLeft < 20000) {
+        background.style.backgroundImage = 'url(/Images/Cole_Thomas_The_Course_of_Empire_The_Arcadian_or_Pastoral_State_1836.jpg)'
+      } else if (20000 < timeline.scrollLeft && timeline.scrollLeft < 30000) {
+        background.style.backgroundImage = "url(/Images/Cole_Thomas_The_Consummation_The_Course_of_the_Empire_1836.jpg)";
+      } else if (50000 < timeline.scrollLeft && timeline.scrollLeft < 80000) {
+        background.style.backgroundImage = "url(/Images/Cole_Thomas_The_Course_of_Empire_Destruction_1836.jpg)";
+      } else if (80000 < timeline.scrollLeft) {
+        background.style.backgroundImage = "url(/Images/Cole_Thomas_The_Course_of_Empire_Desolation_1836.jpg)";
       }
       } else {
         document.querySelector('.timeline').scrollLeft=0;
@@ -97,7 +100,7 @@ scrollDiv(){
     }]
     if (this.state.data) {
       events = this.state.data.map( event => (
-        <div key={event.data_date} id={event.data_date} className="event">
+        <div key={event['_id']} id={event.data_date} className="event">
           <div className="date">
             {event.data_date}
           </div>
@@ -111,53 +114,10 @@ scrollDiv(){
 
       return  (
         <div className='timeline-content'>
+
           <div className='timeline-bg'></div>
-          <tr className="jump-buttons">
-            <th>
-              <Button onClick={() => this.timeHop(1000)}>Foundation of Rome</Button>
-            </th>
-            <th>
-              <Button onClick={() => this.timeHop(2000)}>The Laws of the Twelve Tables 449 BCE</Button>
-            </th>
-            <th>
-              <Button onClick={() => this.timeHop(3000)}>Hannibal invades Italy 218 BCE</Button>
-            </th>
-            <th>
-              <Button onClick={() => this.timeHop(4000)}>Julius Caesar was assassinated 44 BCE</Button>
-            </th>
-          </tr>
-          <tr>
-            <th>
-              <Button onClick={() => this.timeHop(5000)}>Roman Empire began 27 BCE</Button>
-            </th>
-            <th>
-              <Button onClick={() => this.timeHop(5000)}>Augustus ended pontifex maximus 12 BCE</Button>
-            </th>
-            <th>
-              <Button onClick={() => this.timeHop(5000)}>306  Constantine becomes Emperor in 306 AD</Button>
-            </th>
-            <th>
-              <Button onClick={() => this.timeHop(5000)}>380  Conversion to Christianity</Button>
-            </th>
-          </tr>
-          <tr>
-            <th>
-              <Button onClick={() => this.timeHop(5000)}>395  Rome splits</Button>
-            </th>
-            <th>
-              <Button onClick={() => this.timeHop(5000)}>410  The Visigoths sack Rome</Button>
-            </th>
-            <th>
-              <Button onClick={() => this.timeHop(5000)}>476  End of the Western Roman Empire and the fall of Ancient Rome</Button>
-            </th>
-            <th>
-              <Button onClick={() => this.timeHop(50000)}>1453  The Byzantine Empire ends</Button>
-            </th>
-          </tr>
           <Timeline events={events}/>
-          <RomanMap/>
-          <h2>Favourite Events</h2>
-          <Favourites favs={this.state.favourites} removeFavourite={this.removeFavourite} />
+          <Favourites favs={this.state.favourites} removeFavourite={this.removeFavourite} savedNote={this.savedNote}/>
         </div>
       );
     }
