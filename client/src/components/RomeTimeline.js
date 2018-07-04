@@ -1,11 +1,8 @@
 import React, {Component} from 'react';
-import {Button} from 'react-bootstrap';
 import FavouriteButton from './FavouriteButton';
 import Timeline from './Timeline';
 import Favourites from './Favourites';
-import Footer from '../containers/Footer';
 import './RomanTimeline.css'
-import RomanMap from "./RomanMap";
 
 export default class RomeTimeline extends Component {
   constructor(props) {
@@ -103,7 +100,7 @@ scrollDiv(){
     }]
     if (this.state.data) {
       events = this.state.data.map( event => (
-        <div key={event.data_date} id={event.data_date} className="event">
+        <div key={event['_id']} id={event.data_date} className="event">
           <div className="date">
             {event.data_date}
           </div>

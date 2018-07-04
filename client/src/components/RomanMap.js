@@ -11,9 +11,7 @@ export default class RomanMap extends Component {
   }
 
   componentDidMount() {
-    console.log("Roman Map mounted");
     setInterval(this.mapTimeLapse, 30);
-    console.log(document.querySelector(".map-of-rome").src);
   }
 
   mapTimeLapse() {
@@ -54,7 +52,7 @@ export default class RomanMap extends Component {
         } else if( 104650 < timeline.scrollLeft ) {
           img.src= "/Images/RE1181x.gif";
         }
-      } 
+      }
     }
 
 

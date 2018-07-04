@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { Button } from 'react-bootstrap';
 import RomanMap from './RomanMap';
 import RomanHistory from './RomanHistory';
 
@@ -25,7 +24,7 @@ export default class Timeline extends Component {
       <div className='map-btns'>
         <RomanMap />
         <div className='buttons'>
-          <button className='timebutton' className='timebutton' onClick={() => this.timeHop(0)}>
+          <button className='timebutton' onClick={() => this.timeHop(0)}>
             Foundation of Rome
           </button>
           <button className='timebutton' onClick={() => this.timeHop(5958)}>

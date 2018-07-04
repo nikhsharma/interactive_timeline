@@ -27,7 +27,7 @@ export default class Favourites extends Component {
       // const noteToSave = document.querySelector('#submitNote').value;
       favs = this.props.favs.map( fav => (
 
-        <div className='saved'>
+        <div key={fav['_id']} className='saved'>
           <RemoveFavouriteButton removeFavourite={this.props.removeFavourite} currentEvent={fav} />
           <p>{fav.data_date}</p>
           <p>{fav.content}</p>
@@ -43,11 +43,8 @@ export default class Favourites extends Component {
 
       return (
         <div className='favouritessection'>
-          <div className='faveh2'>
-            <h2>Favourite Events</h2>
             <div className='favourites'>
               {favs}
-            </div>
           </div>
 
         </div>
