@@ -31,11 +31,12 @@ export default class Favourites extends Component {
           <RemoveFavouriteButton removeFavourite={this.props.removeFavourite} currentEvent={fav} />
           <p>{fav.data_date}</p>
           <p>{fav.content}</p>
+          <h4>Notes:</h4>
+
           <div>
             <input id="submitNote" type="text"/>
             <input id="submitBtn" type="submit" value="Save" onClick={() => this.props.savedNote(fav, document.querySelector('#submitNote').value)}/>
           </div>
-          <p>Notes:</p>
           <p>{fav.note}</p>
         </div>
       ))}
