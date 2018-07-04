@@ -19,6 +19,7 @@ export default class RomeTimeline extends Component {
     this.timeHop = this.timeHop.bind(this)
     this.handleFavClick = this.handleFavClick.bind(this);
     this.removeFavourite = this.removeFavourite.bind(this);
+    this.savedNote = this.savedNote.bind(this);
   }
 
   componentDidMount() {
@@ -35,7 +36,6 @@ export default class RomeTimeline extends Component {
     const newFavs = this.state.favourites;
     newFavs.splice(0, 0, currentEvent);
     this.setState({favourites: newFavs})
-    this.forceUpdate();
     localStorage.setItem('saved', JSON.stringify(this.state.favourites));
   }
 
@@ -48,13 +48,23 @@ export default class RomeTimeline extends Component {
       this.setState({favourites: newFavs})
       localStorage.setItem('saved', JSON.stringify(newFavs))
     })
-    // console.log('asfas');
-    // for (let i = 0; i < this.state.favourites.length; i++) {
-    //   if (this.state.favourites[i] === fave) {
-    //     this.state.favourites.slice(i, 1);
-    //
-    //   }
-    // }
+  }
+
+  savedNote(currentEvent, note) {
+    if(!this.state.favourites) return null;
+
+    const newEvent = {
+      _id: currentEvent["_id"],
+      data_date: currentEvent.data_date,
+      content: currentEvent.content,
+      note: note
+    }
+
+    const newFavourites = this.state.favourites.map(favourite =>{
+      return favourite["_id"] === newEvent["_id"] ? newEvent : favourite
+    });
+      this.setState({favourites: newFavourites})
+      localStorage.setItem("saved", JSON.stringify(newFavourites));
   }
 
 scrollDiv(){
@@ -116,7 +126,7 @@ scrollDiv(){
 
           <div className='timeline-bg'></div>
           <Timeline events={events}/>
-          <Favourites favs={this.state.favourites} removeFavourite={this.removeFavourite} />
+          <Favourites favs={this.state.favourites} removeFavourite={this.removeFavourite} savedNote={this.savedNote}/>
           {/* <Footer /> */}
         </div>
       );

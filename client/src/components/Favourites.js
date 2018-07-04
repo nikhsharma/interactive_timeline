@@ -14,10 +14,17 @@ export default class Favourites extends Component {
     });
   }
 
+  handleSaveNote(currentFav) {
+    const savedNote = this.state.favourites;
+    this.setState({favourites: savedNote})
+    localStorage.setItem('saved', JSON.stringify(this.state.favourites));
+  }
+
 
   render() {
     let favs;
     if (this.props.favs) {
+      // const noteToSave = document.querySelector('#submitNote').value;
       favs = this.props.favs.map( fav => (
 
         <div className='saved'>
@@ -25,11 +32,11 @@ export default class Favourites extends Component {
           <p>{fav.data_date}</p>
           <p>{fav.content}</p>
           <div>
-            <form action="">
               <input id="submitNote" type="text"/>
-              <input id="submitBtn" type="submit" value="Submit" onClick={() => console.log("Testing the click")}/>
-            </form>
+              <button id="submitBtn" type="submit" value="Save" onClick={() => this.props.savedNote(fav, document.querySelector('#submitNote').value)}/>
           </div>
+          <p>Notes:</p>
+          <p>{fav.note}</p>
         </div>
       ))}
 
