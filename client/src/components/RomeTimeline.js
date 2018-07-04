@@ -1,11 +1,8 @@
 import React, {Component} from 'react';
-import {Button} from 'react-bootstrap';
 import FavouriteButton from './FavouriteButton';
 import Timeline from './Timeline';
 import Favourites from './Favourites';
-import Footer from '../containers/Footer';
 import './RomanTimeline.css'
-import RomanMap from "./RomanMap";
 
 export default class RomeTimeline extends Component {
   constructor(props) {
@@ -19,6 +16,7 @@ export default class RomeTimeline extends Component {
     this.timeHop = this.timeHop.bind(this)
     this.handleFavClick = this.handleFavClick.bind(this);
     this.removeFavourite = this.removeFavourite.bind(this);
+    this.savedNote = this.savedNote.bind(this);
   }
 
   componentDidMount() {
@@ -35,7 +33,6 @@ export default class RomeTimeline extends Component {
     const newFavs = this.state.favourites;
     newFavs.splice(0, 0, currentEvent);
     this.setState({favourites: newFavs})
-    this.forceUpdate();
     localStorage.setItem('saved', JSON.stringify(this.state.favourites));
   }
 
@@ -48,34 +45,38 @@ export default class RomeTimeline extends Component {
       this.setState({favourites: newFavs})
       localStorage.setItem('saved', JSON.stringify(newFavs))
     })
-    // console.log('asfas');
-    // for (let i = 0; i < this.state.favourites.length; i++) {
-    //   if (this.state.favourites[i] === fave) {
-    //     this.state.favourites.slice(i, 1);
-    //
-    //   }
-    // }
+  }
+
+  savedNote(currentEvent, note) {
+    if(!this.state.favourites) return null;
+
+    const newEvent = {
+      _id: currentEvent["_id"],
+      data_date: currentEvent.data_date,
+      content: currentEvent.content,
+      note: note
+    }
+
+    const newFavourites = this.state.favourites.map(favourite =>{
+      return favourite["_id"] === newEvent["_id"] ? newEvent : favourite
+    });
+      this.setState({favourites: newFavourites})
+      localStorage.setItem("saved", JSON.stringify(newFavourites));
   }
 
 scrollDiv(){
   const timeline = document.querySelector('.timeline');
   if (timeline) {
-    const background = document.querySelector('.timeline-bg');
+    const background = document.querySelector('.timeline-content');
     if(timeline.scrollLeft<(timeline.scrollWidth-timeline.offsetWidth)){
       timeline.scrollLeft=timeline.scrollLeft+this.state.scrollSpeed
-      if (timeline.scrollLeft < 1950) {
-        background.style.filter = ''
+      if (timeline.scrollLeft < 20000) {
         background.style.backgroundImage = 'url(/Images/Cole_Thomas_The_Course_of_Empire_The_Arcadian_or_Pastoral_State_1836.jpg)'
-      } else if (1950 < timeline.scrollLeft && timeline.scrollLeft < 2050) {
-        background.style.filter = 'blur(10px)'
-      } else if (2050 < timeline.scrollLeft && timeline.scrollLeft < 3950) {
-        background.style.filter = ''
+      } else if (20000 < timeline.scrollLeft && timeline.scrollLeft < 30000) {
         background.style.backgroundImage = "url(/Images/Cole_Thomas_The_Consummation_The_Course_of_the_Empire_1836.jpg)";
-      } else if (3950 < timeline.scrollLeft && timeline.scrollLeft < 4050) {
-        background.style.filter = 'blur(10px)'
+      } else if (50000 < timeline.scrollLeft && timeline.scrollLeft < 80000) {
         background.style.backgroundImage = "url(/Images/Cole_Thomas_The_Course_of_Empire_Destruction_1836.jpg)";
-      } else if (4050 < timeline.scrollLeft && timeline.scrollLeft < 8000) {
-        background.style.filter = ''
+      } else if (80000 < timeline.scrollLeft) {
         background.style.backgroundImage = "url(/Images/Cole_Thomas_The_Course_of_Empire_Desolation_1836.jpg)";
       }
       } else {
@@ -99,7 +100,7 @@ scrollDiv(){
     }]
     if (this.state.data) {
       events = this.state.data.map( event => (
-        <div key={event.data_date} id={event.data_date} className="event">
+        <div key={event['_id']} id={event.data_date} className="event">
           <div className="date">
             {event.data_date}
           </div>
@@ -116,8 +117,7 @@ scrollDiv(){
 
           <div className='timeline-bg'></div>
           <Timeline events={events}/>
-          <Favourites favs={this.state.favourites} removeFavourite={this.removeFavourite} />
-          {/* <Footer /> */}
+          <Favourites favs={this.state.favourites} removeFavourite={this.removeFavourite} savedNote={this.savedNote}/>
         </div>
       );
     }

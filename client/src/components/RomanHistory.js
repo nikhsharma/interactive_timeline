@@ -11,9 +11,6 @@ export default class RomanHistory extends Component {
     }
   }
 
-  componentDidMount() {
-    console.log("Roman History mounted");
-  }
 
   componentDidUpdate() {
     if (this.state.open === true) {
