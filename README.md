@@ -1,4 +1,4 @@
-# interactive_timeline
+# Interactive Timeline
 An interactive timeline of Roman history, built in React.
 
 The brief for this project was to create an Educational app, which shows information in an interactive way.
